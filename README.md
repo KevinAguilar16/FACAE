@@ -10,4 +10,7 @@ Crear un programa para FACE
 
 Composición
 -----------
-Index.php
+### <- Index.php
+Este es el archivo principa
+### <- Readm.md
+Este es pare explicar el proyecto
