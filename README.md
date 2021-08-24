@@ -5,7 +5,7 @@ Integrates
 - Stalin Francis.
 - Damaris Miranda
 
-Objetivo :+1
+Objetivo 👍
 ------------
 Pograma para la gestión de archivos pdf.
 
