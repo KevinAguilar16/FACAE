@@ -15,7 +15,7 @@ function index()
 {
 	$data= $this->facae_model->consultar()->result();
 
-    print_r($data);
+//    print_r($data);
 
 	$this->load->view("facae_form");
 }
