@@ -3,10 +3,11 @@ Integrates
 ==========
 - Kevin Aguilar.
 - Stalin Francis.
+- Damaris Miranda
 
-Objetivo
----------
-Crear un programa para FACE
+Objetivo :+1
+------------
+Pograma para la gestión de archivos pdf.
 
 Composición
 -----------
