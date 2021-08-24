@@ -15,3 +15,7 @@ Composición
 Este es el archivo principa
 ### <- Readm.md
 Este es pare explicar el proyecto
+- Modelo (Model)
+- Vista (View)
+- Controlador (Controller).
+   - Login.php
