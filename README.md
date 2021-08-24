@@ -1,8 +1,8 @@
 # FACAE
 Integrates
 ==========
-| Kevin Aguilar
-| Stalin Francis
+| Kevin Aguilar.
+| Stalin Francis.
 
 Objetivo
 ---------
