@@ -176,7 +176,7 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
-  `idusuario` int NOT NULL,
+  `idusuario` int unsigned NOT NULL AUTO_INCREMENT,
   `password` varchar(45) DEFAULT NULL,
   `idpersona` int DEFAULT NULL,
   `idperfil` int DEFAULT NULL,
@@ -193,7 +193,6 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (0,'PIWIIB1234',5,NULL,'educaysoft@gmail.com');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -206,4 +205,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-25 11:27:58
+-- Dump completed on 2021-08-26 11:35:41
