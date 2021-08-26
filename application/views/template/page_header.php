@@ -256,7 +256,8 @@ function myFunction(id) {
 <!------ <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/educaysoft/eys-css/main/eys-style.css"/> --->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/eys-style.css" />   
 
-<link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/assets/css/eys.css" />   
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/eys.css" />   
+<!---- <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/assets/css/eys.css" />  ----> 
 
 <script  type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/js/bootstrap.js" ></script>
 <script  type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/js/bootstrap.min.js" ></script>
