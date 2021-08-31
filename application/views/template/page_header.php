@@ -296,7 +296,7 @@ body{
 .sidebar{
 	position: fixed;
 	height: 100%;
-	width:30%;
+	width:5%;
 	top:  0;
 	left:0;
 	z-index: 1;
@@ -595,7 +595,7 @@ span a {
     		</div>
 	<?php }else { ?>
     <div class="pull-right">
- 		<div  style="border:5px solid red; diplay:table-cell; vertical-align: middle;">
+ 		<div  style="diplay:table-cell; vertical-align: middle;">
 			<div class= "w3-bar" > 
 				<a href= "<?php echo base_url(); ?>index.php/login/user_registration_show" class= "abrir-cerrar w3-bar-item  w3-border-green w3-border-right"> Registrate</a>
 				<a href= "http://<?php echo $_SERVER['SERVER_NAME']; ?>/SICAPG/index.php/login" class= "abrir-cerrar w3-bar-item"> Entrar</a>
@@ -605,34 +605,25 @@ span a {
 	<?php } ?>
 
 
-    <div class="media-left">
-	    	<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.png" wide="80" height="80" alt="Formget logo"></a>  
-	  </div>
-		<div class="media-left" style="border:5px solid red; display:table-cell; vertical-align:middle;"  >
+    	<div class="media-left">
+<a id="abrir" class="abrir-cerrar w3-bar-item"  href="javascript:void(0)" onclick="mostrar()"><img src="<?php echo base_url(); ?>images/maestrias1.png" wide="49" height="50" alt="Formget logo"> </a><a id="cerrar" class="abrir-cerrar w3-bar-item" href="#" onclick="ocultar()"><img src="<?php echo base_url(); ?>images/maestrias2.png" wide="49" height="50" alt="Formget logo"> </a>
+    		<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.png" wide="80" height="80" alt="Formget logo"></a>  
+    </div>    
+	 </div>
+		<div class="media-left" style=" display:table-cell; vertical-align:middle;"  >
 			<h4 > UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS</h4>
 		</div>
-
-
  	</div>
-
-
-
 
 <div id="eys-contenido-g"  style="margin-top: 5vh; margin-left:2%">
 <div id="sidebar" class="sidebar">
     <a href="#" class="boton-cerrar" onclick="ocultar()">&times;</a>
 
-    <div class="media-left">
-				<a id="abrir" class="abrir-cerrar w3-bar-item"  href="javascript:void(0)" onclick="mostrar()"><img src="<?php echo base_url(); ?>images/maestrias1.png" wide="49" height="50" alt="Formget logo"> </a><a id="cerrar" class="abrir-cerrar w3-bar-item" href="#" onclick="ocultar()"><img src="<?php echo base_url(); ?>images/maestrias2.png" wide="49" height="50" alt="Formget logo"> </a>
-    </div>    
 <ul class="menu" >
-    <li><a id="MTI" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/mti'>1.-MTI</a></li>
+    <li><a id="MTI" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/usuario'><img src="<?php echo base_url(); ?>assets/iconos/usuario.png" wide="49" height="50" alt="Formget logo"></a></li>
+    <li><a id="MCA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/persona'><img src="<?php echo base_url(); ?>assets/iconos/persona.png" wide="49" height="50" alt="Formget logo"></a></li>
+    <li><a id="MFI" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/perfil'><img src="<?php echo base_url(); ?>assets/iconos/perfil.png" wide="49" height="50" alt="Formget logo"></a></li>
 
-
-
-    <li><a id="MTI" style="font-size:0.8vw;" href="#">1.-Maestría en Tecnología de la Información</a></li>
-    <li><a id="MCA" style="font-size:0.8vw;" href="#">2.-Maestría en Contabilidad y Auditoría</a></li>
-    <li><a id="MFI" style="font-size:0.8vw;" href="#">3.-Maestría en Finanzas</a></li>
     <li><a id="MAG" style="font-size:0.8vw;" href="#">4.-Maestría en Agronomía,Mención Producción Agrícola Sotenible</a></li>
     <li><a id="MGA" style="font-size:0.8vw;" href="#">5.-Maestría en Gestión Ambiental</a></li>
     <li><a id="MEM" style="font-size:0.8vw;" href="#">6.-Maestría en Educación, Mención en Enseñanza de la Matemática</a></li>
@@ -650,7 +641,7 @@ span a {
 
 
    
-<div  style=" border:5px solid blue; height=100hw; width:70%; float:right;  vertical-align:top; padding-bottom:2.5em; margin:0; ">
+<div  style=" border:5px solid blue; height=100hw; width:70%; float:left;  vertical-align:top; padding-bottom:2.5em; margin:10vh 10vh auto; ">
 
 
 

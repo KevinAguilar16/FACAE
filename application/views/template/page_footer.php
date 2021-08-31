@@ -13,9 +13,9 @@ function mostrar() {
   //  document.getElementById("eys-contenido-g").style.marginLeft = "300px";
     document.getElementById("abrir").style.display = "none";
     document.getElementById("cerrar").style.display = "inline";
-    document.getElementById("MTI").innerHTML="1.-Maestría en Tecnología de la Información";
-    document.getElementById("MCA").innerHTML="2.-Maestría en Contabilidad y Auditoría";
-    document.getElementById("MFI").innerHTML="3.-Maestría en Finanzas";
+    document.getElementById("MTI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/usuario.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Usuarios";
+    document.getElementById("MCA").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/persona.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Personas";
+    document.getElementById("MFI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/perfil.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Perfil";
     document.getElementById("MAG").innerHTML="4.-Maestría en Agronomía,Mención Producción Agrícola Sotenible";
     document.getElementById("MGA").innerHTML="5.-Maestría en Gestión Ambiental";
     document.getElementById("MEM").innerHTML="6.-Maestría en Educación, Mención en Enseñanza de la Matemática";
@@ -30,9 +30,9 @@ function ocultar() {
   //  document.getElementById("eys-contenido-g").style.marginLeft = "5%";
     document.getElementById("abrir").style.display = "inline";
     document.getElementById("cerrar").style.display = "none";
-    document.getElementById("MTI").innerHTML="1.-MTI";
-    document.getElementById("MCA").innerHTML="2.-MCA";
-    document.getElementById("MFI").innerHTML="3.-MFI";
+    document.getElementById("MTI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/usuario.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
+    document.getElementById("MCA").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/persona.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
+    document.getElementById("MFI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/perfil.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
     document.getElementById("MAG").innerHTML="5.-MAG";
     document.getElementById("MGA").innerHTML="6.-MGA";
     document.getElementById("MEM").innerHTML="7.-MEM";

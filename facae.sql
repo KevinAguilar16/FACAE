@@ -90,6 +90,29 @@ LOCK TABLES `estudiane` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `perfil`
+--
+
+DROP TABLE IF EXISTS `perfil`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `perfil` (
+  `idperfil` int NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`idperfil`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `perfil`
+--
+
+LOCK TABLES `perfil` WRITE;
+/*!40000 ALTER TABLE `perfil` DISABLE KEYS */;
+/*!40000 ALTER TABLE `perfil` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `persona`
 --
 
@@ -109,7 +132,7 @@ CREATE TABLE `persona` (
   `idestadocivil` int DEFAULT NULL,
   `idnacionalidad` int DEFAULT NULL,
   PRIMARY KEY (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +141,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (5,'FRANCIS QUINDE STALIN ADALBERTO',NULL,'0801560517',NULL,'fotos/0801560517.jpg','pdfs/0801560517.pdf',1,1,1,1);
+INSERT INTO `persona` VALUES (6,'FRANCIS QUINDE STALIN ADALBERTO',NULL,'0801560517',NULL,'fotos/0801560517.jpg','pdfs/0801560517.pdf',1,1,1,1);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,7 +207,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`idusuario`),
   KEY `idpersona` (`idpersona`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,6 +216,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'PIWIIB1234',6,NULL,'educaysoft@gmail.com');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -205,4 +229,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-26 11:35:41
+-- Dump completed on 2021-08-30 19:47:33
