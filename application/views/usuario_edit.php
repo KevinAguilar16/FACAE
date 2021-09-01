@@ -1,6 +1,8 @@
 <?php echo form_open('usuario/save_edit') ?>
 <?php echo form_hidden('idusuario',$usuario['idusuario']) ?>
+<div style="margin-top=5cm">
 <h2> <?php echo $title; ?></h2>
+</div>
 <hr />
 <table>
   <tr>

@@ -1,4 +1,7 @@
+
+<div style="margin-top:5cm;">
 <h2> <?php echo $title; ?> </h2>
+</div>
 <hr/>
 <?php echo form_open("usuario/save") ?>
 <?php echo form_hidden("idusuario")  ?>
