@@ -9,20 +9,19 @@ function closeForm1() {
 }
 
 function mostrar() {
-    document.getElementById("sidebar").style.width = "500px";
+    document.getElementById("sidebar").style.width = "10%";
   //  document.getElementById("eys-contenido-g").style.marginLeft = "300px";
     document.getElementById("abrir").style.display = "none";
     document.getElementById("cerrar").style.display = "inline";
     document.getElementById("MTI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/usuario.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Usuarios";
     document.getElementById("MCA").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/persona.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Personas";
-    document.getElementById("MFI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/perfil.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Perfil";
-    document.getElementById("MAG").innerHTML="4.-Maestría en Agronomía,Mención Producción Agrícola Sotenible";
-    document.getElementById("MGA").innerHTML="5.-Maestría en Gestión Ambiental";
-    document.getElementById("MEM").innerHTML="6.-Maestría en Educación, Mención en Enseñanza de la Matemática";
-    document.getElementById("MMD").innerHTML="7.-Maestría en Matemática, Mención Modelación y Docencia";
-    document.getElementById("MEE").innerHTML="8.-Maestría en Mecánica, Mención en Eficiencia Energética";
-    document.getElementById("MLI").innerHTML="10.-Maestría en Comencio, Mención Gestión Logística Internacional";
-    document.getElementById("MDP").innerHTML="11.-Maestría en Derecho Penal"
+    document.getElementById("MFI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/perfil.png\" wide=\"50\" height=\"50\" alt=\"Formget logo\"> - Perfil";
+    document.getElementById("MGA").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/documento.png\" wide=\"50\" height=\"50\" alt=\"Formget logo\"> - Documento";
+  //  document.getElementById("MEM").innerHTML="6.-Maestría en Educación, Mención en Enseñanza de la Matemática";
+   // document.getElementById("MMD").innerHTML="7.-Maestría en Matemática, Mención Modelación y Docencia";
+   // document.getElementById("MEE").innerHTML="8.-Maestría en Mecánica, Mención en Eficiencia Energética";
+  //  document.getElementById("MLI").innerHTML="10.-Maestría en Comencio, Mención Gestión Logística Internacional";
+  //  document.getElementById("MDP").innerHTML="11.-Maestría en Derecho Penal"
 }
 
 function ocultar() {
@@ -33,13 +32,13 @@ function ocultar() {
     document.getElementById("MTI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/usuario.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
     document.getElementById("MCA").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/persona.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
     document.getElementById("MFI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/perfil.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
-    document.getElementById("MAG").innerHTML="5.-MAG";
-    document.getElementById("MGA").innerHTML="6.-MGA";
-    document.getElementById("MEM").innerHTML="7.-MEM";
-    document.getElementById("MMD").innerHTML="8.-MMD";
-    document.getElementById("MEE").innerHTML="9.-MEE";
-    document.getElementById("MLI").innerHTML="10.-MLI";
-    document.getElementById("MDP").innerHTML="11.-MDP";
+
+    document.getElementById("MGA").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/documento.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
+   // document.getElementById("MEM").innerHTML="7.-MEM";
+   // document.getElementById("MMD").innerHTML="8.-MMD";
+   // document.getElementById("MEE").innerHTML="9.-MEE";
+   // document.getElementById("MLI").innerHTML="10.-MLI";
+  //  document.getElementById("MDP").innerHTML="11.-MDP";
 }
 
 

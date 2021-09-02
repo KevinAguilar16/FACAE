@@ -615,7 +615,7 @@ span a {
 		</div>
  	</div>
 
-<div id="eys-contenido-g"  style="margin-top: 5vh; margin-left:2%">
+<div id="eys-contenido-g"  style="margin-top: 5vh; ">
 <div id="sidebar" class="sidebar">
     <a href="#" class="boton-cerrar" onclick="ocultar()">&times;</a>
 
@@ -624,16 +624,15 @@ span a {
     <li><a id="MCA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/persona'><img src="<?php echo base_url(); ?>assets/iconos/persona.png" wide="49" height="50" alt="Formget logo"></a></li>
     <li><a id="MFI" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/perfil'><img src="<?php echo base_url(); ?>assets/iconos/perfil.png" wide="49" height="50" alt="Formget logo"></a></li>
 
-    <li><a id="MAG" style="font-size:0.8vw;" href="#">4.-Maestría en Agronomía,Mención Producción Agrícola Sotenible</a></li>
-    <li><a id="MGA" style="font-size:0.8vw;" href="#">5.-Maestría en Gestión Ambiental</a></li>
-    <li><a id="MEM" style="font-size:0.8vw;" href="#">6.-Maestría en Educación, Mención en Enseñanza de la Matemática</a></li>
+    <li><a id="MGA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/documento'><img src="<?php echo base_url(); ?>assets/iconos/documento.png" wide="49" height="50" alt="Formget logo"></a></li>
+    
+
+<!--    <li><a id="MEM" style="font-size:0.8vw;" href="#">6.-Maestría en Educación, Mención en Enseñanza de la Matemática</a></li>
     <li><a id="MMD" style="font-size:0.8vw;" href="#">7.-Maestría en Matemática, Mención Modelación y Docencia</a></li>
     <li><a id="MEE" style="font-size:0.8vw;" href="#">8.-Maestría en Mecánica, Mención en Eficiencia Energética</a></li>
     <li><a id="MLI" style="font-size:0.8vw;" href="#">10.-Maestría en Comencio, Mención Gestión Logística Internacional</a></li>
-    <li><a id="MDP" style="font-size:0.8vw;" href="#">11.-Maestría en Derecho Penal</a></li>
+    <li><a id="MDP" style="font-size:0.8vw;" href="#">11.-Maestría en Derecho Penal</a></li> -->
     </ul>
-}
-
 
 
 </div>
@@ -641,7 +640,7 @@ span a {
 
 
    
-<div  style=" border:5px solid blue; height=100hw; width:70%; float:left;  vertical-align:top; padding-bottom:2.5em; margin:10vh 10vh auto; ">
+<div id="eys-principal"  style=" border:5px solid blue; height=100hw; width:70%; float:left;  vertical-align:top; padding-bottom:2.5em; margin:10vh 10vh auto; position:relative;">
 
 
 
