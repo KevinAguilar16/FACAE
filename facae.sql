@@ -40,6 +40,33 @@ LOCK TABLES `asignatura` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `destinatario`
+--
+
+DROP TABLE IF EXISTS `destinatario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `destinatario` (
+  `iddocumentos` int NOT NULL,
+  `idpersona` int NOT NULL,
+  PRIMARY KEY (`iddocumentos`,`idpersona`),
+  KEY `fk_documentos_has_persona_persona1_idx` (`idpersona`),
+  KEY `fk_documentos_has_persona_documentos1_idx` (`iddocumentos`),
+  CONSTRAINT `fk_documentos_has_persona_documentos1` FOREIGN KEY (`iddocumentos`) REFERENCES `documentos` (`iddocumentos`),
+  CONSTRAINT `fk_documentos_has_persona_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `destinatario`
+--
+
+LOCK TABLES `destinatario` WRITE;
+/*!40000 ALTER TABLE `destinatario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `destinatario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `docente`
 --
 
@@ -62,6 +89,60 @@ CREATE TABLE `docente` (
 LOCK TABLES `docente` WRITE;
 /*!40000 ALTER TABLE `docente` DISABLE KEYS */;
 /*!40000 ALTER TABLE `docente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `documentos`
+--
+
+DROP TABLE IF EXISTS `documentos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `documentos` (
+  `iddocumentos` int NOT NULL AUTO_INCREMENT,
+  `fechaelaboracion` date DEFAULT NULL,
+  `asunto` varchar(200) DEFAULT NULL,
+  `archivopdf` varchar(100) DEFAULT NULL,
+  `fechaentrerecep` datetime DEFAULT NULL,
+  `observacion` text,
+  PRIMARY KEY (`iddocumentos`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `documentos`
+--
+
+LOCK TABLES `documentos` WRITE;
+/*!40000 ALTER TABLE `documentos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `documentos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `emisor`
+--
+
+DROP TABLE IF EXISTS `emisor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `emisor` (
+  `idpersona` int NOT NULL,
+  `iddocumentos` int NOT NULL,
+  PRIMARY KEY (`idpersona`,`iddocumentos`),
+  KEY `fk_persona_has_documentos_documentos1_idx` (`iddocumentos`),
+  KEY `fk_persona_has_documentos_persona1_idx` (`idpersona`),
+  CONSTRAINT `fk_persona_has_documentos_documentos1` FOREIGN KEY (`iddocumentos`) REFERENCES `documentos` (`iddocumentos`),
+  CONSTRAINT `fk_persona_has_documentos_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `emisor`
+--
+
+LOCK TABLES `emisor` WRITE;
+/*!40000 ALTER TABLE `emisor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `emisor` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -100,7 +181,7 @@ CREATE TABLE `perfil` (
   `idperfil` int NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idperfil`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,6 +190,7 @@ CREATE TABLE `perfil` (
 
 LOCK TABLES `perfil` WRITE;
 /*!40000 ALTER TABLE `perfil` DISABLE KEYS */;
+INSERT INTO `perfil` VALUES (1,'Administrador');
 /*!40000 ALTER TABLE `perfil` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,6 +274,29 @@ LOCK TABLES `portafoliod` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tipodoc`
+--
+
+DROP TABLE IF EXISTS `tipodoc`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tipodoc` (
+  `idtipodoc` int NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idtipodoc`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipodoc`
+--
+
+LOCK TABLES `tipodoc` WRITE;
+/*!40000 ALTER TABLE `tipodoc` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipodoc` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `usuario`
 --
 
@@ -229,4 +334,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-30 19:47:33
+-- Dump completed on 2021-09-02 10:29:37
