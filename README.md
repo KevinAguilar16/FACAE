@@ -37,3 +37,5 @@ Este es pare explicar el proyecto
 - Corregir el error #1273 - Collation desconocida: 'utf8mb4_0900_ai_ci'
 - Buscar el texto 'utf8mb4_0900_ai_ci'  por    'utf8mb4_general_ci'
 - Importar la base de datos con el archivo facae.sql.
+### Ejemplo de creación de vistas
+mysql> CREATE VIEW `usuario1` AS select usuario.idusuario, usuario.password, usuario.idpersona,persona.nombres,usuario.idperfil,perfil.descripcion,usuario.email from usuario,perfil,persona where usuario.idpersona=persona.idpersona and usuario.idperfil=perfil.idperfil;
