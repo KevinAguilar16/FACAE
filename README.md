@@ -29,7 +29,7 @@ Este es pare explicar el proyecto
 ### Crear un usuario
   mysql> create user 'utlvte-ti'@'localhost' IDENTIFIED BY 'utLVte2@3#';
 ### Dar permiso a la base de datos
-  mysql> GRANT ALL PRIVILEGES ON facae . * TO 'utlvte-ti'@'localhost';
+  mysql> GRANT ALL PRIVILEGES ON facae . * TO 'utlvte-ti'@'localhost'; \\
   mysql> FLUSH PRIVILEGES;
 ### Corregir errores 
 
