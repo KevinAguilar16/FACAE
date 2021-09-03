@@ -1,7 +1,7 @@
 <?php
 class Perfil_model extends CI_model {
 
-	function listar_perfiles(){
+	function lista_perfil(){
 		 $perfil= $this->db->get('perfil');
 		 return $perfil;
 	}

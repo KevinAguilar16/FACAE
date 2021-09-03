@@ -27,7 +27,7 @@ CREATE TABLE `asignatura` (
   `nombre` varchar(45) DEFAULT NULL,
   `creditos` int DEFAULT NULL,
   PRIMARY KEY (`idasignatura`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,14 +47,14 @@ DROP TABLE IF EXISTS `destinatario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `destinatario` (
-  `iddocumentos` int NOT NULL,
+  `iddocumento` int NOT NULL,
   `idpersona` int NOT NULL,
-  PRIMARY KEY (`iddocumentos`,`idpersona`),
+  PRIMARY KEY (`iddocumento`,`idpersona`),
   KEY `fk_documentos_has_persona_persona1_idx` (`idpersona`),
-  KEY `fk_documentos_has_persona_documentos1_idx` (`iddocumentos`),
-  CONSTRAINT `fk_documentos_has_persona_documentos1` FOREIGN KEY (`iddocumentos`) REFERENCES `documentos` (`iddocumentos`),
+  KEY `fk_documentos_has_persona_documentos1_idx` (`iddocumento`),
+  CONSTRAINT `fk_documentos_has_persona_documentos1` FOREIGN KEY (`iddocumento`) REFERENCES `documento` (`iddocumento`),
   CONSTRAINT `fk_documentos_has_persona_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,7 +79,7 @@ CREATE TABLE `docente` (
   PRIMARY KEY (`iddocente`,`idpersona`),
   KEY `fk_docente_persona1_idx` (`idpersona`),
   CONSTRAINT `fk_docente_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,30 +92,30 @@ LOCK TABLES `docente` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `documentos`
+-- Table structure for table `documento`
 --
 
-DROP TABLE IF EXISTS `documentos`;
+DROP TABLE IF EXISTS `documento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `documentos` (
-  `iddocumentos` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `documento` (
+  `iddocumento` int NOT NULL AUTO_INCREMENT,
   `fechaelaboracion` date DEFAULT NULL,
   `asunto` varchar(200) DEFAULT NULL,
   `archivopdf` varchar(100) DEFAULT NULL,
   `fechaentrerecep` datetime DEFAULT NULL,
   `observacion` text,
-  PRIMARY KEY (`iddocumentos`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`iddocumento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `documentos`
+-- Dumping data for table `documento`
 --
 
-LOCK TABLES `documentos` WRITE;
-/*!40000 ALTER TABLE `documentos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `documentos` ENABLE KEYS */;
+LOCK TABLES `documento` WRITE;
+/*!40000 ALTER TABLE `documento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `documento` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -127,13 +127,13 @@ DROP TABLE IF EXISTS `emisor`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `emisor` (
   `idpersona` int NOT NULL,
-  `iddocumentos` int NOT NULL,
-  PRIMARY KEY (`idpersona`,`iddocumentos`),
-  KEY `fk_persona_has_documentos_documentos1_idx` (`iddocumentos`),
+  `iddocumento` int NOT NULL,
+  PRIMARY KEY (`idpersona`,`iddocumento`),
   KEY `fk_persona_has_documentos_persona1_idx` (`idpersona`),
-  CONSTRAINT `fk_persona_has_documentos_documentos1` FOREIGN KEY (`iddocumentos`) REFERENCES `documentos` (`iddocumentos`),
+  KEY `fk_emisor_documento1_idx` (`iddocumento`),
+  CONSTRAINT `fk_emisor_documento1` FOREIGN KEY (`iddocumento`) REFERENCES `documento` (`iddocumento`),
   CONSTRAINT `fk_persona_has_documentos_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,7 +158,7 @@ CREATE TABLE `estudiane` (
   PRIMARY KEY (`idestudiane`,`idpersona`),
   KEY `fk_estudiane_persona1_idx` (`idpersona`),
   CONSTRAINT `fk_estudiane_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +181,7 @@ CREATE TABLE `perfil` (
   `idperfil` int NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idperfil`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,7 +214,7 @@ CREATE TABLE `persona` (
   `idestadocivil` int DEFAULT NULL,
   `idnacionalidad` int DEFAULT NULL,
   PRIMARY KEY (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -284,7 +284,7 @@ CREATE TABLE `tipodoc` (
   `idtipodoc` int NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idtipodoc`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -307,12 +307,14 @@ CREATE TABLE `usuario` (
   `idusuario` int unsigned NOT NULL AUTO_INCREMENT,
   `password` varchar(45) DEFAULT NULL,
   `idpersona` int DEFAULT NULL,
-  `idperfil` int DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
+  `idperfil` int NOT NULL,
   PRIMARY KEY (`idusuario`),
   KEY `idpersona` (`idpersona`),
+  KEY `fk_usuario_perfil1_idx` (`idperfil`),
+  CONSTRAINT `fk_usuario_perfil1` FOREIGN KEY (`idperfil`) REFERENCES `perfil` (`idperfil`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -321,9 +323,45 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'PIWIIB1234',6,NULL,'educaysoft@gmail.com');
+INSERT INTO `usuario` VALUES (1,'PIWIIB1234',6,'educaysoft@gmail.com',1),(2,'1233',6,'educaysoft@hotmail.com',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `usuario1`
+--
+
+DROP TABLE IF EXISTS `usuario1`;
+/*!50001 DROP VIEW IF EXISTS `usuario1`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `usuario1` AS SELECT 
+ 1 AS `idusuario`,
+ 1 AS `password`,
+ 1 AS `idpersona`,
+ 1 AS `nombres`,
+ 1 AS `idperfil`,
+ 1 AS `descripcion`,
+ 1 AS `email`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `usuario1`
+--
+
+/*!50001 DROP VIEW IF EXISTS `usuario1`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `usuario1` AS select `usuario`.`idusuario` AS `idusuario`,`usuario`.`password` AS `password`,`usuario`.`idpersona` AS `idpersona`,`persona`.`nombres` AS `nombres`,`usuario`.`idperfil` AS `idperfil`,`perfil`.`descripcion` AS `descripcion`,`usuario`.`email` AS `email` from ((`usuario` join `perfil`) join `persona`) where ((`usuario`.`idpersona` = `persona`.`idpersona`) and (`usuario`.`idperfil` = `perfil`.`idperfil`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -334,4 +372,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-02 10:29:37
+-- Dump completed on 2021-09-02 19:59:28

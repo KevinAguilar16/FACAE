@@ -13,13 +13,26 @@
 
 <tr>
 <td> idpersona </td>
-<td><?php echo form_input("idpersona","", array("placeholder"=>"idpersona"))  ?></td>
+<td><?php
+$options= array('--Select--');
+foreach ($personas as $row){
+	$options[$row->idpersona]= $row->nombres;
+}
+
+ echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
 <tr>
 <td> idperfil </td>
-<td><?php echo form_input("idperfil","", array("placeholder"=>"idperfil"))  ?></td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($perfiles as $row){
+	$options[$row->idperfil]= $row->descripcion;
+}
+
+ echo form_dropdown("idperfil",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 <tr>

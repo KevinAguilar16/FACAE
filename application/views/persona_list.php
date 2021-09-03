@@ -17,7 +17,7 @@
 <th> NOMBRES-</th>
 </tr>
 <tbody>
-<?php  foreach($persona_list as $list) { ?>
+<?php  foreach($personas as $list) { ?>
 <tr>
 <td> <?php echo $list->idpersona ?></td>
 <td> <?php echo $list->cedula ?></td>

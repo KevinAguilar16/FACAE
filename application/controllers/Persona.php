@@ -8,7 +8,7 @@ class Persona extends CI_Controller{
 }
 
 public function index(){
-  $data['persona_list']=$this->persona_model->listar_persona()->result();
+  $data['personas']=$this->persona_model->lista_persona()->result();
  // print_r($data['persona_list']);
   $data['title']="LIsta de Persona";
 	$this->load->view('template/page_header');		

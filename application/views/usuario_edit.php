@@ -11,11 +11,28 @@
   </tr>
   <tr>
      <td>idpersona:</td>
-     <td><?php echo form_input('idpersona',$usuario['idpersona'],array('placeholder'=>'Idpersona')) ?></td>
+      
+     <td><?php 
+
+ $options = array('--Select--');
+  foreach ($personas as $row){
+	$options[$row->idpersona]=$row->nombres;
+}
+
+echo form_dropdown('idpersona',$options,$usuario['idpersona']); ?></td>
   </tr>
    <tr>
      <td>idperfil</td>
-     <td><?php echo form_textarea('idperfil',$usuario['idperfil'],array('placeholder'=>'Idpefil')) ?></td>
+     <td><?php
+
+ $options = array('--Select--');
+  foreach ($perfiles as $row){
+	$options[$row->idperfil]=$row->descripcion;
+}
+
+
+
+ echo form_dropdown('idperfil',$options,$usuario['idperfil']) ?></td>
   </tr> 
   <tr>
       <td>email:</td>

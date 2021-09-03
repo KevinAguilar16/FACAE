@@ -14,7 +14,9 @@
 <th> ID</th>
 <th> PASSWORD</th>
 <th> IDPERSONA</th>
+<th> NOMRE DE LA PERSONA</th>
 <th> IDPERFIL</th>
+<th> PERFIL</th>
 <th> EMAIL</th>
 </tr>
 <tbody>
@@ -23,7 +25,9 @@
 <td> <?php echo $list->idusuario ?></td>
 <td> <?php echo $list->password ?></td>
 <td> <?php echo $list->idpersona ?></td>
+<td> <?php echo $list->nombres ?></td>
 <td> <?php echo $list->idperfil ?></td>
+<td> <?php echo $list->descripcion ?></td>
 <td> <?php echo $list->email?></td>
 <td> <?php echo anchor('usuario/edit/'.$list->idusuario,'Edit') ?> || <?php echo anchor('usuario/delete/'.$list->idusuario,'Delete') ?></td>
  </tr>
