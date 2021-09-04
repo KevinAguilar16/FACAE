@@ -1,13 +1,13 @@
 <?php
 class Documento_model extends CI_model {
 
-	function listar_documentos(){
+	function lista_documento(){
 		 $documento= $this->db->get('documento');
 		 return $documento;
 	}
 
  	function documento( $id){
- 		$documento = $this->db->query('select * from documento where iddocumentos="'. $id.'"');
+ 		$documento = $this->db->query('select * from documento where iddocumento="'. $id.'"');
  		return $documento;
  	}
 
@@ -18,7 +18,7 @@ class Documento_model extends CI_model {
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('iddocumentos',$id);
+ 		$this->db->where('iddocumento',$id);
  		$this->db->update('documento',$array_item);
 	}
  

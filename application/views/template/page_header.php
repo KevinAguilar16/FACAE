@@ -572,18 +572,14 @@ span a {
 <!---<div  style="position:fixed; padding:2px; background-color: rgba(0,255, 0, 0.3); margin-top:0; border-bottom:5px solid green ;z-index: 9999;">-->
 <div  style="position:fixed; width: 100%; padding:8px; background-color: #04df8c ; margin-top:0; border-bottom:2px solid green ;z-index: 9999; ">
   
-
-
-
    	<?php if(isset($this->session->userdata['logged_in']) ){ ?>
     		<div class="pull-right">
             <div class="btn-group">
-        			  <button class="btn btn-success">
-					            <img src= "<?php echo base_url().$this->session->userdata['logged_in']['foto']; ?>" height="100%" class="avatar">
-			          </button>
+        	  <button class="btn btn-success">
+		            <img src= "<?php echo base_url().$this->session->userdata['logged_in']['foto']; ?>" height="100%" class="avatar">
+	          </button>
 
-                <button class="btn btn-success dropdown-toggle" 
-                                data-toggle="dropdown">
+                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
                             <span class="caret"></span>
                 </button>
                         <ul class="dropdown-menu pull-right">
@@ -592,8 +588,59 @@ span a {
                             <li><a href="<?php echo base_url(); ?>index.php/login/logout">Salir</a></li>
                         </ul>
             </div>
-    		</div>
-	<?php }else { ?>
+    	</div>
+  
+   	<div class="media-left">
+        <a id="abrir" class="abrir-cerrar w3-bar-item"  href="javascript:void(0)" onclick="mostrar()"><img src="<?php echo base_url(); ?>images/maestrias1.png" wide="49" height="50" alt="Formget logo"> </a><a id="cerrar" class="abrir-cerrar w3-bar-item" href="#" onclick="ocultar()"><img src="<?php echo base_url(); ?>images/maestrias2.png" wide="49" height="50" alt="Formget logo"> </a>
+    		<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.png" wide="80" height="80" alt="Formget logo"></a>  
+    </div>    
+
+		<div class="media-left" style=" display:table-cell; vertical-align:middle;"  >
+			<h4 > UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS</h4>
+		</div>
+ 	</div>
+
+
+  <div id="eys-contenido-g"  style="margin-top: 5vh; ">
+    <div id="sidebar" class="sidebar">
+        <a href="#" class="boton-cerrar" onclick="ocultar()">&times;</a>
+
+        <ul class="menu" >
+            <li><a id="MTI" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/usuario'><img src="<?php echo base_url(); ?>assets/iconos/usuario.png" wide="49" height="50" alt="Formget logo"></a></li>
+            <li><a id="MCA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/persona'><img src="<?php echo base_url(); ?>assets/iconos/persona.png" wide="49" height="50" alt="Formget logo"></a></li>
+            <li><a id="MFI" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/perfil'><img src="<?php echo base_url(); ?>assets/iconos/perfil.png" wide="49" height="50" alt="Formget logo"></a></li>
+
+    <li><a id="MGA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/documento'><img src="<?php echo base_url(); ?>assets/iconos/documento.png" wide="49" height="50" alt="Formget logo"></a></li>
+    
+    <li><a id="MEM" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/emisor'><img src="<?php echo base_url(); ?>assets/iconos/emisor.png" wide="49" height="50" alt="Formget logo"></a></li>
+    <li><a id="MMD" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/destinatario'><img src="<?php echo base_url(); ?>assets/iconos/destinatario.png" wide="49" height="50" alt="Formget logo"></a></li>
+
+<!--    <li><a id="MEM" style="font-size:0.8vw;" href="#">6.-Maestría en Educación, Mención en Enseñanza de la Matemática</a></li>
+    <li><a id="MMD" style="font-size:0.8vw;" href="#">7.-Maestría en Matemática, Mención Modelación y Docencia</a></li>
+    <li><a id="MEE" style="font-size:0.8vw;" href="#">8.-Maestría en Mecánica, Mención en Eficiencia Energética</a></li>
+    <li><a id="MLI" style="font-size:0.8vw;" href="#">10.-Maestría en Comencio, Mención Gestión Logística Internacional</a></li>
+    <li><a id="MDP" style="font-size:0.8vw;" href="#">11.-Maestría en Derecho Penal</a></li> -->
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php }else { ?>
     <div class="pull-right">
  		<div  style="diplay:table-cell; vertical-align: middle;">
 			<div class= "w3-bar" > 
@@ -602,40 +649,24 @@ span a {
 			</div> 
    	</div>
     </div>
-	<?php } ?>
-
-
-    	<div class="media-left">
-<a id="abrir" class="abrir-cerrar w3-bar-item"  href="javascript:void(0)" onclick="mostrar()"><img src="<?php echo base_url(); ?>images/maestrias1.png" wide="49" height="50" alt="Formget logo"> </a><a id="cerrar" class="abrir-cerrar w3-bar-item" href="#" onclick="ocultar()"><img src="<?php echo base_url(); ?>images/maestrias2.png" wide="49" height="50" alt="Formget logo"> </a>
+  
+   	<div class="media-left">
+        <a id="abrir" class="abrir-cerrar w3-bar-item"  href="javascript:void(0)" onclick="mostrar()"><img src="<?php echo base_url(); ?>images/maestrias1.png" wide="49" height="50" alt="Formget logo"> </a><a id="cerrar" class="abrir-cerrar w3-bar-item" href="#" onclick="ocultar()"><img src="<?php echo base_url(); ?>images/maestrias2.png" wide="49" height="50" alt="Formget logo"> </a>
     		<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.png" wide="80" height="80" alt="Formget logo"></a>  
     </div>    
-	 </div>
+
 		<div class="media-left" style=" display:table-cell; vertical-align:middle;"  >
 			<h4 > UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS</h4>
 		</div>
  	</div>
 
-<div id="eys-contenido-g"  style="margin-top: 5vh; ">
-<div id="sidebar" class="sidebar">
-    <a href="#" class="boton-cerrar" onclick="ocultar()">&times;</a>
 
-<ul class="menu" >
-    <li><a id="MTI" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/usuario'><img src="<?php echo base_url(); ?>assets/iconos/usuario.png" wide="49" height="50" alt="Formget logo"></a></li>
-    <li><a id="MCA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/persona'><img src="<?php echo base_url(); ?>assets/iconos/persona.png" wide="49" height="50" alt="Formget logo"></a></li>
-    <li><a id="MFI" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/perfil'><img src="<?php echo base_url(); ?>assets/iconos/perfil.png" wide="49" height="50" alt="Formget logo"></a></li>
-
-    <li><a id="MGA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/documento'><img src="<?php echo base_url(); ?>assets/iconos/documento.png" wide="49" height="50" alt="Formget logo"></a></li>
-    
-
-<!--    <li><a id="MEM" style="font-size:0.8vw;" href="#">6.-Maestría en Educación, Mención en Enseñanza de la Matemática</a></li>
-    <li><a id="MMD" style="font-size:0.8vw;" href="#">7.-Maestría en Matemática, Mención Modelación y Docencia</a></li>
-    <li><a id="MEE" style="font-size:0.8vw;" href="#">8.-Maestría en Mecánica, Mención en Eficiencia Energética</a></li>
-    <li><a id="MLI" style="font-size:0.8vw;" href="#">10.-Maestría en Comencio, Mención Gestión Logística Internacional</a></li>
-    <li><a id="MDP" style="font-size:0.8vw;" href="#">11.-Maestría en Derecho Penal</a></li> -->
-    </ul>
+  <div id="eys-contenido-g"  style="margin-top: 5vh; ">
 
 
-</div>
+
+<?php } ?>
+
 
 
 

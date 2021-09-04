@@ -4,38 +4,33 @@
 </div>
 <hr/>
 <?php echo form_open("documento/save") ?>
-<?php echo form_hidden("iddocumentos")  ?>
+<?php echo form_hidden("iddocumento")  ?>
 <table>
-
-<tr>
-<td> iddocumentos </td>
-<td><?php echo form_input("iddocumentos","", array("placeholder"=>"iddocumentos"))  ?></td>
-</tr>
-
-
-<tr>
-<td> archivo_pdf </td>
-<td><?php echo form_input("archivopdf","", array("placeholder"=>"archivopdf"))  ?></td>
-</tr>
-
-<tr>
-<td> asunto </td>
-<td><?php echo form_input("asunto","", array("placeholder"=>"asunto"))  ?></td>
-</tr>
-
 <tr>
 <td> fecha elaboracion </td>
-<td><?php echo form_input("fechaelaboracion","", array("placeholder"=>"fechaelaboracion"))  ?></td>
+<td><?php echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion","type"=>"date"));  ?></td>
 </tr>
 
 <tr>
 <td> Fecha Recepcion </td>
-<td><?php echo form_input("fechaentrerecep","", array("placeholder"=>"fechaentrerecep"))  ?></td>
+<td><?php echo form_input(array("name"=>"fechaentrerecep","id"=>"fechaentrerecep","type"=>"date"));  ?></td>
+</tr>
+
+<tr>
+<td> asunto </td>
+<td><?php echo form_textarea("asunto","", array("placeholder"=>"asunto"))  ?></td>
+</tr>
+
+
+
+<tr>
+<td> archivo_pdf </td>
+<td><?php echo form_upload("archivopdf","archivopdf")  ?></td>
 </tr>
 
 <tr>
 <td> Observacion </td>
-<td><?php echo form_input("observacion","", array("placeholder"=>"observacion"))  ?></td>
+<td><?php echo form_textarea("observacion","", array("placeholder"=>"observacion"))  ?></td>
 </tr>
 
 <tr>

@@ -8,7 +8,7 @@ class Documento extends CI_Controller{
 }
 
 public function index(){
-  $data['documento_list']=$this->documento_model->listar_documentos()->result();
+  $data['documento_list']=$this->documento_model->lista_documento()->result();
  // print_r($data['usuario_list']);
   $data['title']="LIsta de Documentos";
 	$this->load->view('template/page_header');		
@@ -32,7 +32,7 @@ public function add()
 	{
 	 	$array_item=array(
 		 	
-		 	'iddocumentos' => $this->input->post('iddocumentos'),
+		 	'iddocumento' => $this->input->post('iddocumento'),
 		 	'archivopdf' => $this->input->post('archivopdf'),
 		 	'asunto' => $this->input->post('asunto'),
 			'fechaelaboracion' => $this->input->post('fechaelaboracion'),

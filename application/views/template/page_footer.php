@@ -17,6 +17,8 @@ function mostrar() {
     document.getElementById("MCA").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/persona.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Personas";
     document.getElementById("MFI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/perfil.png\" wide=\"50\" height=\"50\" alt=\"Formget logo\"> - Perfil";
     document.getElementById("MGA").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/documento.png\" wide=\"50\" height=\"50\" alt=\"Formget logo\"> - Documento";
+    document.getElementById("MEM").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/emisor.png\" wide=\"50\" height=\"50\" alt=\"Formget logo\"> - Emisor";
+    document.getElementById("MMD").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/destinatario.png\" wide=\"50\" height=\"50\" alt=\"Formget logo\"> - Destinatario";
   //  document.getElementById("MEM").innerHTML="6.-Maestría en Educación, Mención en Enseñanza de la Matemática";
    // document.getElementById("MMD").innerHTML="7.-Maestría en Matemática, Mención Modelación y Docencia";
    // document.getElementById("MEE").innerHTML="8.-Maestría en Mecánica, Mención en Eficiencia Energética";
@@ -34,6 +36,8 @@ function ocultar() {
     document.getElementById("MFI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/perfil.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
 
     document.getElementById("MGA").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/documento.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
+    document.getElementById("MEM").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/emisor.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
+    document.getElementById("MMD").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/destinatario.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
    // document.getElementById("MEM").innerHTML="7.-MEM";
    // document.getElementById("MMD").innerHTML="8.-MMD";
    // document.getElementById("MEE").innerHTML="9.-MEE";

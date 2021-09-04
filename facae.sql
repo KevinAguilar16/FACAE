@@ -40,6 +40,32 @@ LOCK TABLES `asignatura` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `departamento`
+--
+
+DROP TABLE IF EXISTS `departamento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `departamento` (
+  `iddepartamento` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `idunidad` int NOT NULL,
+  PRIMARY KEY (`iddepartamento`),
+  KEY `fk_departamento_unidad1_idx` (`idunidad`),
+  CONSTRAINT `fk_departamento_unidad1` FOREIGN KEY (`idunidad`) REFERENCES `unidad` (`idunidad`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `departamento`
+--
+
+LOCK TABLES `departamento` WRITE;
+/*!40000 ALTER TABLE `departamento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `departamento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `destinatario`
 --
 
@@ -106,7 +132,7 @@ CREATE TABLE `documento` (
   `fechaentrerecep` datetime DEFAULT NULL,
   `observacion` text,
   PRIMARY KEY (`iddocumento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,6 +141,7 @@ CREATE TABLE `documento` (
 
 LOCK TABLES `documento` WRITE;
 /*!40000 ALTER TABLE `documento` DISABLE KEYS */;
+INSERT INTO `documento` VALUES (1,'2021-09-02','Documento de prueba','Planificacion-MTI.pdf','2021-09-22 00:00:00','Este es un documento de prueba que se sube');
 /*!40000 ALTER TABLE `documento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,8 +169,24 @@ CREATE TABLE `emisor` (
 
 LOCK TABLES `emisor` WRITE;
 /*!40000 ALTER TABLE `emisor` DISABLE KEYS */;
+INSERT INTO `emisor` VALUES (6,1);
 /*!40000 ALTER TABLE `emisor` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `emisor1`
+--
+
+DROP TABLE IF EXISTS `emisor1`;
+/*!50001 DROP VIEW IF EXISTS `emisor1`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `emisor1` AS SELECT 
+ 1 AS `iddocumento`,
+ 1 AS `idpersona`,
+ 1 AS `asunto`,
+ 1 AS `nombres`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `estudiane`
@@ -168,6 +211,83 @@ CREATE TABLE `estudiane` (
 LOCK TABLES `estudiane` WRITE;
 /*!40000 ALTER TABLE `estudiane` DISABLE KEYS */;
 /*!40000 ALTER TABLE `estudiane` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `funcionario`
+--
+
+DROP TABLE IF EXISTS `funcionario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `funcionario` (
+  `idfuncionario` int NOT NULL AUTO_INCREMENT,
+  `idpersona` int NOT NULL,
+  PRIMARY KEY (`idfuncionario`),
+  KEY `fk_funcionario_persona1_idx` (`idpersona`),
+  CONSTRAINT `fk_funcionario_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `funcionario`
+--
+
+LOCK TABLES `funcionario` WRITE;
+/*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `institucion`
+--
+
+DROP TABLE IF EXISTS `institucion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `institucion` (
+  `idinstitucion` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idinstitucion`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `institucion`
+--
+
+LOCK TABLES `institucion` WRITE;
+/*!40000 ALTER TABLE `institucion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `institucion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nombramiento`
+--
+
+DROP TABLE IF EXISTS `nombramiento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `nombramiento` (
+  `idfuncionario` int NOT NULL,
+  `iddepartamento` int NOT NULL,
+  `fechaingreso` date DEFAULT NULL,
+  `fechasalida` date DEFAULT NULL,
+  PRIMARY KEY (`idfuncionario`,`iddepartamento`),
+  KEY `fk_funcionario_has_departamento_departamento1_idx` (`iddepartamento`),
+  KEY `fk_funcionario_has_departamento_funcionario1_idx` (`idfuncionario`),
+  CONSTRAINT `fk_funcionario_has_departamento_departamento1` FOREIGN KEY (`iddepartamento`) REFERENCES `departamento` (`iddepartamento`),
+  CONSTRAINT `fk_funcionario_has_departamento_funcionario1` FOREIGN KEY (`idfuncionario`) REFERENCES `funcionario` (`idfuncionario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nombramiento`
+--
+
+LOCK TABLES `nombramiento` WRITE;
+/*!40000 ALTER TABLE `nombramiento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `nombramiento` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -297,6 +417,32 @@ LOCK TABLES `tipodoc` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `unidad`
+--
+
+DROP TABLE IF EXISTS `unidad`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `unidad` (
+  `idunidad` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `idinstitucion` int NOT NULL,
+  PRIMARY KEY (`idunidad`),
+  KEY `fk_unidad_institucion1_idx` (`idinstitucion`),
+  CONSTRAINT `fk_unidad_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `unidad`
+--
+
+LOCK TABLES `unidad` WRITE;
+/*!40000 ALTER TABLE `unidad` DISABLE KEYS */;
+/*!40000 ALTER TABLE `unidad` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `usuario`
 --
 
@@ -346,6 +492,24 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Final view structure for view `emisor1`
+--
+
+/*!50001 DROP VIEW IF EXISTS `emisor1`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `emisor1` AS select `emisor`.`iddocumento` AS `iddocumento`,`emisor`.`idpersona` AS `idpersona`,`documento`.`asunto` AS `asunto`,`persona`.`nombres` AS `nombres` from ((`emisor` join `documento`) join `persona`) where ((`emisor`.`iddocumento` = `documento`.`iddocumento`) and (`emisor`.`idpersona` = `persona`.`idpersona`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `usuario1`
 --
 
@@ -372,4 +536,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-03 10:14:57
+-- Dump completed on 2021-09-03 23:24:54
