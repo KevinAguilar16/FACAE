@@ -9,7 +9,8 @@ parent::__construct();
 
 
 // Load database
-$this->load->model('login_model');
+	$this->load->model('login_model');
+	$this->load->model('perfil_model');
 //$this->load->model('programa_model');
 }
 
@@ -24,9 +25,10 @@ public function index() {
 // Show registration page
 public function user_registration_show() {
  	//$data['programa_list'] = $this->programa_model->list_programa()->result();
+	$data['perfiles']= $this->perfil_model->lista_perfil()->result();
 	$this->load->view('template/page_header.php');
 	//$this->load->view('registration_form',$data);
-	$this->load->view('registration_form');
+	$this->load->view('registration_form',$data);
 	$this->load->view('template/page_footer.php');
 }
 
@@ -36,6 +38,7 @@ public function new_user_registration() {
 // Check validation for user input in SignUp form
 $this->form_validation->set_rules('apellidos', 'Apellidos', 'trim|required|xss_clean');
 $this->form_validation->set_rules('nombres', 'Nombres', 'trim|required|xss_clean');
+$this->form_validation->set_rules('idperfil', 'Perfil', 'trim|required|xss_clean');
 $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
 $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 if ($this->form_validation->run() == FALSE) {
@@ -44,7 +47,7 @@ if ($this->form_validation->run() == FALSE) {
 $this->load->view('registration_form',$data);
 	 $this->load->view('template/page_footer.php');
 } else {
-$datau = array('email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0);
+$datau = array('email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1);
 
 $datap = array('cedula'=>$this->input->post('cedula'),'nombres'=>$this->input->post('apellidos')." ".$this->input->post('nombres'));
 $datap+=['foto'=>"fotos/".$this->input->post('cedula').".jpg"];

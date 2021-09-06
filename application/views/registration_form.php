@@ -66,6 +66,33 @@
 		echo "</div>";
   	?>
 	</div>
+
+
+
+	<div class="w3-container"  style="text-align:left; font-size: 70%;">
+  	<?php
+  		echo "<label  style='text-align:left; font-size:100%;' for='perfil' >  Perfil: </label>";
+		$options= array('--Select--');
+		foreach ($perfiles as $row){
+			$options[$row->idperfil]= $row->descripcion;
+		}
+  		echo form_dropdown('idperfil',$options,set_select('--Select--','default_value'),array('class'=>'form-control'));
+  		echo "<div class='error_msg'>";
+  		if (isset($message_display)) {
+     			echo $message_display;
+  		}
+		echo "</div>";
+  	?>
+	</div>
+
+
+
+
+
+
+
+
+
 	<div class="w3-container"  style="text-align:left; font-size: 70%;" >
   	<?php
   		echo "<label style='text-align:left; font-size: 100%;'  for='email'> Correo: </label>";
