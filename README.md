@@ -21,6 +21,9 @@ Este es pare explicar el proyecto
    - Login.php
 # Instalación
 ## Instalación de base de datos
+### Modelo Entidad Relacióñ
+!(https://github.com/KevinAguilar16/facae/blob/main/readme.md/schemedb.png)
+> Modelo
 ### Crear la base de datos
 - ingresar a phpmyadmin
 - Crear la base de datos facae
