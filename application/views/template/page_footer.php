@@ -15,6 +15,7 @@ function mostrar() {
     document.getElementById("cerrar").style.display = "inline";
 
 
+    document.getElementById("BUS").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/buscar.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Buscar DOC";
     document.getElementById("INS").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/institucion.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Institución";
     document.getElementById("UNI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/unidad.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Unidad";
     document.getElementById("DEP").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/departamento.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Departamento";
@@ -39,6 +40,7 @@ function ocultar() {
     document.getElementById("cerrar").style.display = "none";
 
 
+    document.getElementById("BUS").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/buscar.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
     document.getElementById("INS").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/institucion.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
     document.getElementById("UNI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/unidad.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
     document.getElementById("DEP").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/departamento.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";

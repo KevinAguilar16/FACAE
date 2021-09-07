@@ -608,6 +608,7 @@ span a {
         <ul class="menu" >
 
 
+            <li><a id="BUS" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/buscar'><img src="<?php echo base_url(); ?>assets/iconos/buscar.png" wide="49" height="50" alt="Formget logo"></a></li>
             <li><a id="INS" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/institucion'><img src="<?php echo base_url(); ?>assets/iconos/institucion.png" wide="49" height="50" alt="Formget logo"></a></li>
             <li><a id="UNI" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/unidad'><img src="<?php echo base_url(); ?>assets/iconos/unidad.png" wide="49" height="50" alt="Formget logo"></a></li>
             <li><a id="DEP" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/departamento'><img src="<?php echo base_url(); ?>assets/iconos/departamento.png" wide="49" height="50" alt="Formget logo"></a></li>
