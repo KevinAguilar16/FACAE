@@ -1,4 +1,7 @@
 # FACAE
+
+![](https://github.com/KevinAguilar16/facae/blob/main/readme.md/pantalla.png)
+>Interface de la aplicación
 Integrates
 ==========
 - Kevin Aguilar.
