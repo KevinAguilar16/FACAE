@@ -30,7 +30,7 @@ Este es pare explicar el proyecto
 ### importar la base de datos
 - Ingersar a la opcion de importar
 ### Crear un usuario
-  mysql> create user 'utlvte-ti'@'localhost' IDENTIFIED BY 'utLVte2@3#';
+  `mysql> create user 'utlvte-ti'@'localhost' IDENTIFIED BY 'utLVte2@3#';`
 ### Dar permiso a la base de datos
   mysql> GRANT ALL PRIVILEGES ON facae . * TO 'utlvte-ti'@'localhost'; \\
   mysql> FLUSH PRIVILEGES;
