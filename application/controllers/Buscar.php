@@ -10,7 +10,7 @@ class Buscar extends CI_Controller{
 public function index(){
 	$data['documento'] = $this->documento_model->documento(1)->row_array();
  // print_r($data['usuario_list']);
-  $data['title']="LIsta de Perfiles";
+  $data['title']="Vista de Documento";
 	$this->load->view('template/page_header');		
   $this->load->view('buscar_list',$data);
 	$this->load->view('template/page_footer');
