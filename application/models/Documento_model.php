@@ -11,6 +11,26 @@ class Documento_model extends CI_model {
  		return $documento;
  	}
 
+
+	function emisores( $iddocu)
+	{
+ 		$this->db->select('idpersona,nombres');
+		$this->db->where('iddocumento="'.$iddocu.'"');
+		$emisores=$this->db->get('emisor1');
+		$emisores=$this->db->query('select idpersona,nombres from emisor1 where iddocumento="'. $iddocu.'"');
+		return $emisores;
+	}
+
+
+
+	function destinatarios( $iddocu)
+	{
+		$destinatarios=$this->db->query('select idpersona,nombres from destinatario1 where iddocumento="'. $iddocu.'"');
+		return $destinatarios;
+	}
+
+
+
  	function save($array)
  	{
 		$this->db->insert("documento", $array);

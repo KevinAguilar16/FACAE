@@ -25,6 +25,7 @@ echo form_dropdown('idpersona',$options,$usuario['idpersona']); ?></td>
      <td>idperfil</td>
      <td><?php
 
+ print_r($perfiles);
  $options = array('--Select--');
   foreach ($perfiles as $row){
 	$options[$row->idperfil]=$row->descripcion;

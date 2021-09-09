@@ -8,9 +8,12 @@ class Documento extends CI_Controller{
 }
 
 public function index(){
-  $data['documento_list']=$this->documento_model->lista_documento()->result();
+ // $data['documento_list']=$this->documento_model->lista_documento()->result();
+  $data['documento'] = $this->documento_model->documento(1)->row_array();
+  $data['emisores'] =$this->documento_model->emisores(1)->result();
+  $data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
  // print_r($data['usuario_list']);
-  $data['title']="LIsta de Documentos";
+  $data['title']="Documento";
 	$this->load->view('template/page_header');		
   $this->load->view('documento_list',$data);
 	$this->load->view('template/page_footer');
