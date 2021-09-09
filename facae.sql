@@ -89,8 +89,24 @@ CREATE TABLE `destinatario` (
 
 LOCK TABLES `destinatario` WRITE;
 /*!40000 ALTER TABLE `destinatario` DISABLE KEYS */;
+INSERT INTO `destinatario` VALUES (1,7);
 /*!40000 ALTER TABLE `destinatario` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `destinatario1`
+--
+
+DROP TABLE IF EXISTS `destinatario1`;
+/*!50001 DROP VIEW IF EXISTS `destinatario1`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `destinatario1` AS SELECT 
+ 1 AS `iddocumento`,
+ 1 AS `asunto`,
+ 1 AS `idpersona`,
+ 1 AS `nombres`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `docente`
@@ -131,7 +147,10 @@ CREATE TABLE `documento` (
   `archivopdf` varchar(100) DEFAULT NULL,
   `fechaentrerecep` datetime DEFAULT NULL,
   `observacion` text,
-  PRIMARY KEY (`iddocumento`)
+  `idtipodoc` int NOT NULL,
+  PRIMARY KEY (`iddocumento`,`idtipodoc`),
+  KEY `fk_documento_tipodoc1_idx` (`idtipodoc`),
+  CONSTRAINT `fk_documento_tipodoc1` FOREIGN KEY (`idtipodoc`) REFERENCES `tipodoc` (`idtipodoc`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -141,7 +160,7 @@ CREATE TABLE `documento` (
 
 LOCK TABLES `documento` WRITE;
 /*!40000 ALTER TABLE `documento` DISABLE KEYS */;
-INSERT INTO `documento` VALUES (1,'2021-09-02','Documento de prueba','Planificacion-MTI.pdf','2021-09-22 00:00:00','Este es un documento de prueba que se sube');
+INSERT INTO `documento` VALUES (1,'2021-09-02','Documento de prueba','Planificacion-MTI.pdf','2021-09-22 00:00:00','Este es un documento de prueba que se sube',0);
 /*!40000 ALTER TABLE `documento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +188,7 @@ CREATE TABLE `emisor` (
 
 LOCK TABLES `emisor` WRITE;
 /*!40000 ALTER TABLE `emisor` DISABLE KEYS */;
-INSERT INTO `emisor` VALUES (6,1);
+INSERT INTO `emisor` VALUES (6,1),(7,1);
 /*!40000 ALTER TABLE `emisor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -334,7 +353,7 @@ CREATE TABLE `persona` (
   `idestadocivil` int DEFAULT NULL,
   `idnacionalidad` int DEFAULT NULL,
   PRIMARY KEY (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -343,7 +362,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (6,'FRANCIS QUINDE STALIN ADALBERTO',NULL,'0801560517',NULL,'fotos/0801560517.jpg','pdfs/0801560517.pdf',1,1,1,1);
+INSERT INTO `persona` VALUES (6,'FRANCIS QUINDE STALIN ADALBERTO',NULL,'0801560517',NULL,'fotos/0801560517.jpg','pdfs/0801560517.pdf',1,1,1,1),(7,'Miranda Bolaños Damaris',NULL,'0850489881',NULL,'fotos/0850489881.jpg','pdfs/0850489881.pdf',1,1,1,1);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -460,7 +479,7 @@ CREATE TABLE `usuario` (
   KEY `fk_usuario_perfil1_idx` (`idperfil`),
   CONSTRAINT `fk_usuario_perfil1` FOREIGN KEY (`idperfil`) REFERENCES `perfil` (`idperfil`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -469,7 +488,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'PIWIIB1234',6,'educaysoft@gmail.com',1),(2,'1233',6,'educaysoft@hotmail.com',1);
+INSERT INTO `usuario` VALUES (1,'PIWIIB1234',6,'educaysoft@gmail.com',1),(2,'1233',6,'educaysoft@hotmail.com',1),(3,'123456',7,'damaris.miranda@utelvt.edu.ec',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -490,6 +509,24 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `descripcion`,
  1 AS `email`*/;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `destinatario1`
+--
+
+/*!50001 DROP VIEW IF EXISTS `destinatario1`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `destinatario1` AS select `destinatario`.`iddocumento` AS `iddocumento`,`documento`.`asunto` AS `asunto`,`destinatario`.`idpersona` AS `idpersona`,`persona`.`nombres` AS `nombres` from ((`destinatario` join `documento`) join `persona`) where ((`destinatario`.`iddocumento` = `documento`.`iddocumento`) and (`destinatario`.`idpersona` = `persona`.`idpersona`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
 -- Final view structure for view `emisor1`
@@ -536,4 +573,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-04 16:53:11
+-- Dump completed on 2021-09-09 10:02:05
