@@ -680,7 +680,7 @@ span a {
 
 
    
-<div id="eys-principal"  style=" border:5px solid blue; height=100hw; width:70%; float:left;  vertical-align:top; padding-bottom:2.5em; margin:10vh 10vh auto; position:relative;">
+<div id="eys-principal"  style=" border:5px solid blue; height=100hw; width:100%; float:right;  vertical-align:top; padding-bottom:2.5em; margin:10vh 0vh auto; position:relative;">
 
 
 

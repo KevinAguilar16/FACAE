@@ -77,6 +77,11 @@ public function edit()
 
 
 
+public function canvas(){
+	$this->load->view('template/page_header');
+	$this->load->view('canvas');
+	$this->load->view('template/page_footer');
+}
 
 
 }

@@ -10,9 +10,10 @@
         <li><a href="#">anterior</a></li>
         <li><a href="#">siguiente</a></li>
         <li><a href="#">ultimo</a></li>
-        <li><?php echo anchor('documento/edit/'.$documento['iddocumento'],'Edit'); ?></li>
-        <li><?php echo anchor('documento/delete/'.$documento['iddocumento'],'Delete'); ?></li>
-        <li><a href="#">buscar</a></li>
+        <li> <?php echo anchor('documento/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('documento/edit/'.$documento['iddocumento'],'Edit'); ?></li>
+        <li> <?php echo anchor('documento/delete/'.$documento['iddocumento'],'Delete'); ?></li>
+        <li> <?php echo anchor('documento/canvas/'.$documento['archivopdf'],'Ver PDF'); ?></li>
     </ul></div>
 
 <br>
@@ -86,9 +87,6 @@
       <td><?php echo form_textarea('observacion',$documento['observacion'],array('placeholder'=>'observacion')) ?></td>
   </tr>
 
- <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Update Item!'); ?> <?php echo anchor('documento','Back') ?></td>
- </tr>
 </table>
 <?php echo form_close(); ?>
 

@@ -10,7 +10,9 @@ function closeForm1() {
 
 function mostrar() {
     document.getElementById("sidebar").style.width = "10%";
-  //  document.getElementById("eys-contenido-g").style.marginLeft = "300px";
+  
+document.getElementById("eys-principal").style.width="90%";
+//  document.getElementById("eys-contenido-g").style.marginLeft = "300px";
     document.getElementById("abrir").style.display = "none";
     document.getElementById("cerrar").style.display = "inline";
 
@@ -35,6 +37,7 @@ function mostrar() {
 
 function ocultar() {
     document.getElementById("sidebar").style.width = "5%";
+document.getElementById("eys-principal").style.width="95%";
   //  document.getElementById("eys-contenido-g").style.marginLeft = "5%";
     document.getElementById("abrir").style.display = "inline";
     document.getElementById("cerrar").style.display = "none";
@@ -59,7 +62,7 @@ function ocultar() {
   //  document.getElementById("MDP").innerHTML="11.-MDP";
 }
 
-
+document.getElementById("eys-principal").style.width="95%";
 </script>
 
 
