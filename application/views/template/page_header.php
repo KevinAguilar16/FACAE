@@ -654,7 +654,7 @@ span a {
  		<div  style="diplay:table-cell; vertical-align: middle;">
 			<div class= "w3-bar" > 
 				<a href= "<?php echo base_url(); ?>index.php/login/user_registration_show" class= "abrir-cerrar w3-bar-item  w3-border-green w3-border-right"> Registrate</a>
-				<a href= "http://<?php echo $_SERVER['SERVER_NAME']; ?>/SICAPG/index.php/login" class= "abrir-cerrar w3-bar-item"> Entrar</a>
+				<a href= "<?php echo base_url(); ?>index.php/login" class= "abrir-cerrar w3-bar-item"> Entrar</a>
 			</div> 
    	</div>
     </div>

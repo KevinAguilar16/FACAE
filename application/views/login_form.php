@@ -15,7 +15,7 @@ if (isset($message_display)) {
 	<div id="eys-login" class="w3-container" >
 <div id="eys-login2"  class="w3-card-4"  >
 <header id="eys_header"  class="w3-container" >
-               <p>Post-Grado UTLVTE</p>
+               <p>SISTEMA UTLVTE</p>
             <?php echo form_open('login/user_login_process'); ?>
              <?php
                 echo "<div class='error_msg'>";
