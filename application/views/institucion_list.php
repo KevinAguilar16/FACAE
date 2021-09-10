@@ -12,7 +12,7 @@
 <table border="1">
 <tr>
 
-<th> IDINSTITUCION</th>
+<th> ID INSTITUCION</th>
 <th> NOMBRE</th>
 </tr>
 <tbody>
@@ -21,7 +21,7 @@
 
 <td> <?php echo $list->idinstitucion ?></td>
 <td> <?php echo $list->nombre?></td>
-<td> <?php echo anchor('institucion/edit/'.$list->idinstitucion,'Edit') ?> || <?php echo anchor('institucion/delete/'.$list->idinstitucion,'Delete') ?></td>
+<td> <?php echo anchor('institucion/edit/'.$list->idinstitucion,'Editar') ?> || <?php echo anchor('institucion/delete/'.$list->idinstitucion,'Eliminar') ?></td>
  </tr>
 
 

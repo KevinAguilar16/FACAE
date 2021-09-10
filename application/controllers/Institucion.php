@@ -10,7 +10,7 @@ class Institucion extends CI_Controller{
 public function index(){
   $data['institucion_list']=$this->institucion_model->lista_institucion()->result();
  // print_r($data['usuario_list']);
-  $data['title']="LIsta de Instituciones";
+  $data['title']="Lista de Instituciones";
 	$this->load->view('template/page_header');		
   $this->load->view('institucion_list',$data);
 	$this->load->view('template/page_footer');
@@ -44,7 +44,7 @@ public function add()
 public function edit()
 {
 	 	$data['institucion'] = $this->institucion_model->institucion($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar Persona";
+ 	 	$data['title'] = "Actualizar Institucion";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('institucion_edit',$data);
 	 	$this->load->view('template/page_footer');

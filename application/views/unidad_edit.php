@@ -4,17 +4,14 @@
 <hr />
 <table>
  
-   <tr>
-     <td>idunidad</td>
-     <td><?php echo form_textarea('idunidad',$unidad['idunidad'],array('placeholder'=>'Idunidad')) ?></td>
-  </tr> 
+  
   <tr>
-      <td>nombre:</td>
-      <td><?php echo form_input('nombre',$unidad['nombre'],array('placeholder'=>'nombre')) ?></td>
+      <td>Nombre:</td>
+      <td><?php echo form_input('nombre',$unidad['nombre'],array('placeholder'=>'Nombre de Unidad')) ?></td>
   </tr>
  
  <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Update Item!'); ?> <?php echo anchor('usuario','Back') ?></td>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('usuario','Atras') ?></td>
  </tr>
 </table>
 <?php echo form_close(); ?>

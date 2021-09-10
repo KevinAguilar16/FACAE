@@ -6,10 +6,6 @@
 
 
 
-<tr>
-<td> iddepartamento </td>
-<td><?php echo form_input("iddepartamento","", array("placeholder"=>"iddepartamento"))  ?></td>
-</tr>
 
 <tr>
 <td> nombre </td>

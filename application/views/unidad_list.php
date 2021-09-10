@@ -12,7 +12,7 @@
 <table border="1">
 <tr>
 
-<th> IDUNIDAD</th>
+<th> ID UNIDAD</th>
 <th> NOMBRE</th>
 </tr>
 <tbody>
@@ -21,7 +21,7 @@
 
 <td> <?php echo $list->idunidad ?></td>
 <td> <?php echo $list->nombre?></td>
-<td> <?php echo anchor('unidad/edit/'.$list->idunidad,'Edit') ?> || <?php echo anchor('unidad/delete/'.$list->idunidad,'Delete') ?></td>
+<td> <?php echo anchor('unidad/edit/'.$list->idunidad,'Editar') ?> || <?php echo anchor('unidad/delete/'.$list->idunidad,'Eliminar') ?></td>
  </tr>
 
 
