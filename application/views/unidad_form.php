@@ -5,7 +5,17 @@
 <table>
 
 
+<tr>
+<td> institucion </td>
+<td><?php 
 
+$options= array('--Select--');
+foreach ($instituciones as $row){
+	$options[$row->idinstitucion]= $row->nombre;
+}
+
+ echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
 
 
 <tr>

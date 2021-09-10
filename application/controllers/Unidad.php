@@ -5,6 +5,7 @@ class Unidad extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('unidad_model');
+	  $this->load->model('institucion_model');
 }
 
 public function index(){
@@ -19,6 +20,7 @@ public function index(){
 
 public function add()
 {
+		$data['instituciones']= $this->institucion_model->lista_institucion()->result();
 		$data['title']="Nueva Unidad";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('unidad_form',$data);
@@ -34,6 +36,7 @@ public function add()
 		 	
 		 	'idunidad' => $this->input->post('idunidad'),
 		 	'nombre' => $this->input->post('nombre'),
+			'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
 	 	$this->unidad_model->save($array_item);
 	 	redirect('unidad');
@@ -44,7 +47,7 @@ public function add()
 public function edit()
 {
 	 	$data['unidad'] = $this->unidad_model->unidad($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar Persona";
+ 	 	$data['title'] = "Actualizar Unidad";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('unidad_edit',$data);
 	 	$this->load->view('template/page_footer');
