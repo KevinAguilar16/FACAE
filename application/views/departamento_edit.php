@@ -5,16 +5,16 @@
 <table>
  
    <tr>
-     <td>iddepartamento</td>
-     <td><?php echo form_textarea('iddepartamento',$departamento['iddepartamento'],array('placeholder'=>'Iddepartamento')) ?></td>
+     <td>Id Departamento</td>
+     <td><?php echo form_textarea('iddepartamento',$departamento['iddepartamento'],array('placeholder'=>'Id departamento')) ?></td>
   </tr> 
   <tr>
-      <td>nombre:</td>
-      <td><?php echo form_input('nombre',$departamento['nombre'],array('placeholder'=>'nombre')) ?></td>
+      <td>Nombre:</td>
+      <td><?php echo form_input('nombre',$departamento['nombre'],array('placeholder'=>'Nombre')) ?></td>
   </tr>
  
  <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Update Item!'); ?> <?php echo anchor('usuario','Back') ?></td>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('departamento','Atras') ?></td>
  </tr>
 </table>
 <?php echo form_close(); ?>

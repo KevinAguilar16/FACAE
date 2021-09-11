@@ -5,6 +5,7 @@ class Departamento extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('departamento_model');
+	  $this->load->model('unidad_model');
 }
 
 public function index(){
@@ -19,6 +20,7 @@ public function index(){
 
 public function add()
 {
+		$data['unidades']= $this->unidad_model->lista_unidad()->result();
 		$data['title']="Nuevo Departamento";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('departamento_form',$data);
@@ -32,8 +34,9 @@ public function add()
 	{
 	 	$array_item=array(
 		 	
-		 	'iddepartamento' => $this->input->post('iddepartamento'),
+		 	'idunidad' => $this->input->post('idunidad'),
 		 	'nombre' => $this->input->post('nombre'),
+			'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
 	 	$this->departamento_model->save($array_item);
 	 	redirect('departamento');

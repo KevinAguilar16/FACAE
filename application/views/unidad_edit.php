@@ -11,7 +11,7 @@
   </tr>
  
  <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('usuario','Atras') ?></td>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('unidad','Atras') ?></td>
  </tr>
 </table>
 <?php echo form_close(); ?>

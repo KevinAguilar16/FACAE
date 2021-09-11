@@ -5,14 +5,14 @@
 
 <h2> <?php echo $title;  ?></h2>
 <hr/>
-<?php echo anchor('institucion/add', 'NUEVA INSTITUCION'); ?>
+<?php echo anchor('institucion/add', 'NUEVA INSTITUCIÓN'); ?>
 <br>
 <br>
 
 <table border="1">
 <tr>
 
-<th> ID INSTITUCION</th>
+<th> ID INSTITUCIÓN</th>
 <th> NOMBRE</th>
 </tr>
 <tbody>

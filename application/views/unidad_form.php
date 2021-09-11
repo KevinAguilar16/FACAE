@@ -6,7 +6,7 @@
 
 
 <tr>
-<td> institucion </td>
+<td> Institución </td>
 <td><?php 
 
 $options= array('--Select--');
@@ -24,7 +24,7 @@ foreach ($instituciones as $row){
 </tr>
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("usuario","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("unidad","Atras") ?> </td>
 </tr>
 
 </table>

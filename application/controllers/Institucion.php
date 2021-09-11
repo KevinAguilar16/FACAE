@@ -19,7 +19,7 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva Institucion";
+		$data['title']="Nueva Institución";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('institucion_form',$data);
 	 	$this->load->view('template/page_footer');

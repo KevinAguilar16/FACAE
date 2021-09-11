@@ -12,7 +12,7 @@
 <table border="1">
 <tr>
 
-<th> IDDEPARTAMENTO</th>
+<th> ID DEPARTAMENTO</th>
 <th> NOMBRE</th>
 </tr>
 <tbody>
