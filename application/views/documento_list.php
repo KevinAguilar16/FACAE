@@ -79,7 +79,7 @@
 
 
   <tr>
-     <td>Archivo_Pdf</td>
+     <td><a href="<?php echo base_url(); ?>index.php/documento/postulacion">Archivo_Pdf</a></td>
      <td><?php echo form_textarea('archivopdf',$documento['archivopdf'],array('placeholder'=>'archivopdf')) ?></td>
   </tr> 
    <tr>
