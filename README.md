@@ -1,7 +1,7 @@
 # facae
 ## Creación de un usuario para mysql 
 ```
-CREATE USER 'nuevo_usuario'@'localhost' IDENTIFIED BY 'contraseña';
-GRANT ALL PRIVILEGES ON * . * TO 'nuevo_usuario'@'localhost';
+CREATE USER 'educayso_facae'@'localhost' IDENTIFIED BY 'kSxMP1!DWkl{';
+GRANT ALL PRIVILEGES ON * . * TO 'educayso_facae'@'localhost';
 FLUSH PRIVILEGES;
 ```
