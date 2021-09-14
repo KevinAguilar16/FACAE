@@ -1,8 +1,11 @@
 # facae
 ## Comandos Git
 ```
-Para clonar el repositorio
->Git clone <repo>
+Git clone <repo>
+Git status
+Git add .
+Git commit -m "<mensaje>"
+Git push origin main
 ```
 ## Creación de un usuario para mysql 
 ```
