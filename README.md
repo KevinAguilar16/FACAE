@@ -1,4 +1,9 @@
 # facae
+## Comandos Git
+```
+Para clonar el repositorio
+>Git clone <repo>
+```
 ## Creación de un usuario para mysql 
 ```
 CREATE USER 'educayso_facae'@'localhost' IDENTIFIED BY 'kSxMP1!DWkl{';
