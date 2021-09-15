@@ -94,7 +94,7 @@ function postulacion() {
 
  function loadpdf() {
   echo "Hola  -  ";
-$target_dir =  $_SERVER["DOCUMENT_ROOT"]."/SICAPG/".trim($this->session->userdata['logged_in']['pdf']);  //"uploads/";
+$target_dir =  $_SERVER["DOCUMENT_ROOT"]."/facae/".trim($this->session->userdata['logged_in']['pdf']);  //"uploads/";
 $target_file =$target_dir; // $target_dir . basename($_FILES["fileToUpload"]["name"]);
   echo $target_file.' - ';
 $uploadOk = 1;

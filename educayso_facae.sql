@@ -1,10 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.26, for Linux (x86_64)
 --
--- Host: localhost    Database: facae
+-- Host: localhost    Database: educayso_facae
 -- ------------------------------------------------------
 -- Server version	8.0.26
-
-use educayso_facae;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,7 +27,7 @@ CREATE TABLE `asignatura` (
   `nombre` varchar(45) DEFAULT NULL,
   `creditos` int DEFAULT NULL,
   PRIMARY KEY (`idasignatura`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -55,7 +53,7 @@ CREATE TABLE `departamento` (
   PRIMARY KEY (`iddepartamento`),
   KEY `fk_departamento_unidad1_idx` (`idunidad`),
   CONSTRAINT `fk_departamento_unidad1` FOREIGN KEY (`idunidad`) REFERENCES `unidad` (`idunidad`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,6 +62,7 @@ CREATE TABLE `departamento` (
 
 LOCK TABLES `departamento` WRITE;
 /*!40000 ALTER TABLE `departamento` DISABLE KEYS */;
+INSERT INTO `departamento` VALUES (1,'Coordinación de Ingenieria en Tecnología de l',1);
 /*!40000 ALTER TABLE `departamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,7 +81,7 @@ CREATE TABLE `destinatario` (
   KEY `fk_documentos_has_persona_documentos1_idx` (`iddocumento`),
   CONSTRAINT `fk_documentos_has_persona_documentos1` FOREIGN KEY (`iddocumento`) REFERENCES `documento` (`iddocumento`),
   CONSTRAINT `fk_documentos_has_persona_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,6 +110,31 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Table structure for table `directorio`
+--
+
+DROP TABLE IF EXISTS `directorio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `directorio` (
+  `iddirectorio` int NOT NULL,
+  `nombre` varchar(45) DEFAULT NULL,
+  `ruta` varchar(200) DEFAULT NULL,
+  `descripcion` text,
+  PRIMARY KEY (`iddirectorio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `directorio`
+--
+
+LOCK TABLES `directorio` WRITE;
+/*!40000 ALTER TABLE `directorio` DISABLE KEYS */;
+/*!40000 ALTER TABLE `directorio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `docente`
 --
 
@@ -123,7 +147,7 @@ CREATE TABLE `docente` (
   PRIMARY KEY (`iddocente`,`idpersona`),
   KEY `fk_docente_persona1_idx` (`idpersona`),
   CONSTRAINT `fk_docente_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +177,7 @@ CREATE TABLE `documento` (
   PRIMARY KEY (`iddocumento`,`idtipodoc`),
   KEY `fk_documento_tipodoc1_idx` (`idtipodoc`),
   CONSTRAINT `fk_documento_tipodoc1` FOREIGN KEY (`idtipodoc`) REFERENCES `tipodoc` (`idtipodoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +205,7 @@ CREATE TABLE `emisor` (
   KEY `fk_emisor_documento1_idx` (`iddocumento`),
   CONSTRAINT `fk_emisor_documento1` FOREIGN KEY (`iddocumento`) REFERENCES `documento` (`iddocumento`),
   CONSTRAINT `fk_persona_has_documentos_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,7 +246,7 @@ CREATE TABLE `estudiane` (
   PRIMARY KEY (`idestudiane`,`idpersona`),
   KEY `fk_estudiane_persona1_idx` (`idpersona`),
   CONSTRAINT `fk_estudiane_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -247,7 +271,7 @@ CREATE TABLE `funcionario` (
   PRIMARY KEY (`idfuncionario`),
   KEY `fk_funcionario_persona1_idx` (`idpersona`),
   CONSTRAINT `fk_funcionario_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -270,7 +294,7 @@ CREATE TABLE `institucion` (
   `idinstitucion` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idinstitucion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -279,6 +303,7 @@ CREATE TABLE `institucion` (
 
 LOCK TABLES `institucion` WRITE;
 /*!40000 ALTER TABLE `institucion` DISABLE KEYS */;
+INSERT INTO `institucion` VALUES (1,'Universidad Tecnica Luis Vargas Torres');
 /*!40000 ALTER TABLE `institucion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,7 +324,7 @@ CREATE TABLE `nombramiento` (
   KEY `fk_funcionario_has_departamento_funcionario1_idx` (`idfuncionario`),
   CONSTRAINT `fk_funcionario_has_departamento_departamento1` FOREIGN KEY (`iddepartamento`) REFERENCES `departamento` (`iddepartamento`),
   CONSTRAINT `fk_funcionario_has_departamento_funcionario1` FOREIGN KEY (`idfuncionario`) REFERENCES `funcionario` (`idfuncionario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -322,7 +347,7 @@ CREATE TABLE `perfil` (
   `idperfil` int NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idperfil`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -355,7 +380,7 @@ CREATE TABLE `persona` (
   `idestadocivil` int DEFAULT NULL,
   `idnacionalidad` int DEFAULT NULL,
   PRIMARY KEY (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -377,24 +402,24 @@ DROP TABLE IF EXISTS `portafoliod`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `portafoliod` (
   `idportafoliod` int NOT NULL AUTO_INCREMENT,
-  `color` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `color` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `hojadevida` tinyint DEFAULT NULL,
-  `hojadevidapdf` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `hojadevidapdf` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `silabo` tinyint DEFAULT NULL,
-  `silabopdf` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `silabopdf` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `cuadernillo` tinyint DEFAULT NULL,
-  `cuadernillopdf` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `horario` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `horariopdf` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `plancatedra` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `plancatedrapdf` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `reportenotas` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `reportenotaspdf` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `informelabores` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `informelaborespdf` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `horarioexamen` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `horarioexamenpdf` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `observaciones` text COLLATE utf8mb4_general_ci,
+  `cuadernillopdf` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `horario` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `horariopdf` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `plancatedra` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `plancatedrapdf` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `reportenotas` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `reportenotaspdf` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `informelabores` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `informelaborespdf` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `horarioexamen` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `horarioexamenpdf` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `observaciones` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `iddocente` int NOT NULL,
   `idasignatura` int NOT NULL,
   PRIMARY KEY (`idportafoliod`,`iddocente`,`idasignatura`),
@@ -425,7 +450,7 @@ CREATE TABLE `tipodoc` (
   `idtipodoc` int NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idtipodoc`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -451,7 +476,7 @@ CREATE TABLE `unidad` (
   PRIMARY KEY (`idunidad`),
   KEY `fk_unidad_institucion1_idx` (`idinstitucion`),
   CONSTRAINT `fk_unidad_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -460,6 +485,7 @@ CREATE TABLE `unidad` (
 
 LOCK TABLES `unidad` WRITE;
 /*!40000 ALTER TABLE `unidad` DISABLE KEYS */;
+INSERT INTO `unidad` VALUES (1,'Facultad de Ingenierias',1);
 /*!40000 ALTER TABLE `unidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -481,7 +507,7 @@ CREATE TABLE `usuario` (
   KEY `fk_usuario_perfil1_idx` (`idperfil`),
   CONSTRAINT `fk_usuario_perfil1` FOREIGN KEY (`idperfil`) REFERENCES `perfil` (`idperfil`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -522,7 +548,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `destinatario1` AS select `destinatario`.`iddocumento` AS `iddocumento`,`documento`.`asunto` AS `asunto`,`destinatario`.`idpersona` AS `idpersona`,`persona`.`nombres` AS `nombres` from ((`destinatario` join `documento`) join `persona`) where ((`destinatario`.`iddocumento` = `documento`.`iddocumento`) and (`destinatario`.`idpersona` = `persona`.`idpersona`)) */;
@@ -540,7 +566,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `emisor1` AS select `emisor`.`iddocumento` AS `iddocumento`,`emisor`.`idpersona` AS `idpersona`,`documento`.`asunto` AS `asunto`,`persona`.`nombres` AS `nombres` from ((`emisor` join `documento`) join `persona`) where ((`emisor`.`iddocumento` = `documento`.`iddocumento`) and (`emisor`.`idpersona` = `persona`.`idpersona`)) */;
@@ -558,7 +584,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `usuario1` AS select `usuario`.`idusuario` AS `idusuario`,`usuario`.`password` AS `password`,`usuario`.`idpersona` AS `idpersona`,`persona`.`nombres` AS `nombres`,`usuario`.`idperfil` AS `idperfil`,`perfil`.`descripcion` AS `descripcion`,`usuario`.`email` AS `email` from ((`usuario` join `perfil`) join `persona`) where ((`usuario`.`idpersona` = `persona`.`idpersona`) and (`usuario`.`idperfil` = `perfil`.`idperfil`)) */;
@@ -575,4 +601,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-13 22:42:07
+-- Dump completed on 2021-09-14 20:17:20
