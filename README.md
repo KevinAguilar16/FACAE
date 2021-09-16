@@ -1,9 +1,10 @@
 # facae
 ## Creadores
-`Ing. Stalin Francis
-`Kevin Aguilar
-`Damaria Miranda
-
+```diff
+-Ing. Stalin Francis
++Kevin Aguilar
+!Damaria Miranda
+```
 
 ## Comandos Git
 ```
