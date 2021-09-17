@@ -90,7 +90,7 @@ CREATE TABLE `destinatario` (
 
 LOCK TABLES `destinatario` WRITE;
 /*!40000 ALTER TABLE `destinatario` DISABLE KEYS */;
-INSERT INTO `destinatario` VALUES (1,7);
+INSERT INTO `destinatario` VALUES (3,6),(1,7);
 /*!40000 ALTER TABLE `destinatario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,11 +176,11 @@ CREATE TABLE `documento` (
   `archivopdf` varchar(100) DEFAULT NULL,
   `fechaentrerecep` datetime DEFAULT NULL,
   `observacion` text,
-  `idtipodoc` int NOT NULL,
-  PRIMARY KEY (`iddocumento`,`idtipodoc`),
-  KEY `fk_documento_tipodoc1_idx` (`idtipodoc`),
-  CONSTRAINT `fk_documento_tipodoc1` FOREIGN KEY (`idtipodoc`) REFERENCES `tipodoc` (`idtipodoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `idtipodocu` int NOT NULL,
+  PRIMARY KEY (`iddocumento`,`idtipodocu`),
+  KEY `fk_documento_tipodocu1_idx` (`idtipodocu`),
+  CONSTRAINT `fk_documento_tipodocu1` FOREIGN KEY (`idtipodocu`) REFERENCES `tipodocu` (`idtipodocu`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -189,7 +189,7 @@ CREATE TABLE `documento` (
 
 LOCK TABLES `documento` WRITE;
 /*!40000 ALTER TABLE `documento` DISABLE KEYS */;
-INSERT INTO `documento` VALUES (1,'2021-09-02','Documento de prueba','Planificacion-MTI.pdf','2021-09-22 00:00:00','Este es un documento de prueba que se sube',0);
+INSERT INTO `documento` VALUES (1,'2021-09-02','Documento de prueba','Planificacion-MTI.pdf','2021-09-22 00:00:00','Este es un documento de prueba que se sube',0),(3,'2021-09-17','prueba de documento recibido','M-O_Ingenieria-Software-Sistemas-Informaticos_esp.pdf','2021-09-23 00:00:00','Esta es un documeot de prueba',1),(4,'2021-09-24','RECLAMO SOBRE NOTAS','Folleto digital - MDS.pdf','2021-09-30 00:00:00','UN RECLAMO SOBRE NOTAS ATRASADAS ',3);
 /*!40000 ALTER TABLE `documento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,7 +217,7 @@ CREATE TABLE `emisor` (
 
 LOCK TABLES `emisor` WRITE;
 /*!40000 ALTER TABLE `emisor` DISABLE KEYS */;
-INSERT INTO `emisor` VALUES (6,1),(7,1);
+INSERT INTO `emisor` VALUES (6,1),(7,1),(7,3);
 /*!40000 ALTER TABLE `emisor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -350,7 +350,7 @@ CREATE TABLE `ordenador` (
   `idordenador` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idordenador`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -359,6 +359,7 @@ CREATE TABLE `ordenador` (
 
 LOCK TABLES `ordenador` WRITE;
 /*!40000 ALTER TABLE `ordenador` DISABLE KEYS */;
+INSERT INTO `ordenador` VALUES (1,'LANUBE');
 /*!40000 ALTER TABLE `ordenador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -466,26 +467,27 @@ LOCK TABLES `portafoliod` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tipodoc`
+-- Table structure for table `tipodocu`
 --
 
-DROP TABLE IF EXISTS `tipodoc`;
+DROP TABLE IF EXISTS `tipodocu`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tipodoc` (
-  `idtipodoc` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tipodocu` (
+  `idtipodocu` int NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idtipodoc`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`idtipodocu`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tipodoc`
+-- Dumping data for table `tipodocu`
 --
 
-LOCK TABLES `tipodoc` WRITE;
-/*!40000 ALTER TABLE `tipodoc` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tipodoc` ENABLE KEYS */;
+LOCK TABLES `tipodocu` WRITE;
+/*!40000 ALTER TABLE `tipodocu` DISABLE KEYS */;
+INSERT INTO `tipodocu` VALUES (1,'OFICIO RECIBIDO'),(2,'OFICIO ENTREGADOS'),(3,'OFICIO DE RECLAMO');
+/*!40000 ALTER TABLE `tipodocu` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -627,4 +629,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-15 21:37:54
+-- Dump completed on 2021-09-16 23:07:05

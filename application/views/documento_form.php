@@ -6,6 +6,21 @@
 <?php echo form_open("documento/save") ?>
 <?php echo form_hidden("iddocumento")  ?>
 <table>
+
+<tr>
+<td> Tipo de documento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($tipodocus as $row){
+	$options[$row->idtipodocu]= $row->descripcion;
+}
+
+ echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+
+
 <tr>
 <td> fecha elaboracion </td>
 <td><?php echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion","type"=>"date"));  ?></td>

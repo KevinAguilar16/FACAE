@@ -6,10 +6,10 @@
 <h2> <?php echo $title;  ?></h2>
 <hr/>
 <div id="eys-nav-i"><ul>
-        <li> <?php echo anchor('perfil/add', 'primero'); ?></li>
-        <li><a href="#">anterior</a></li>
-        <li><a href="#">siguiente</a></li>
-        <li><a href="#">ultimo</a></li>
+        <li> <?php echo anchor('documento/primero/', 'primero'); ?></li>
+        <li> <?php echo anchor('documento/anterior/'.$documento['iddocumento'], 'anterior'); ?></li>
+        <li> <?php echo anchor('documento/siguiente/'.$documento['iddocumento'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('documento/ultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('documento/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('documento/edit/'.$documento['iddocumento'],'Edit'); ?></li>
         <li> <?php echo anchor('documento/delete/'.$documento['iddocumento'],'Delete'); ?></li>
@@ -23,7 +23,20 @@
 <?php echo form_open('documento/save_edit') ?>
 <?php echo form_hidden('iddocumento',$documento['iddocumento']) ?>
 <table>
-  
+
+  <tr>
+     <td>Tido de documento:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($tipodocus as $row){
+	$options[$row->idtipodocu]= $row->descripcion;
+}
+
+echo form_input('idtipodocu',$options[$documento['idtipodocu']],array("disabled"=>"disabled")) ?></td>
+  </tr>
+ 
+
+
   <tr>
      <td>iddocumento:</td>
      <td><?php echo form_input('iddocumento',$documento['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos')) ?></td>

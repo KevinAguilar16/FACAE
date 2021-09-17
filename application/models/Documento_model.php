@@ -12,6 +12,52 @@ class Documento_model extends CI_model {
  	}
 
 
+ 	function siguiente($id){
+ 		$documento = $this->db->select("iddocumento")->get('documento')->result_array();
+		print_r($documento);
+		$arr=array("iddocumento"=>$id);
+		print_r($arr);
+		$clave=array_search($arr,$documento);
+	   if(array_key_exists($clave+1,$documento))
+		 {
+
+ 		$documento = $this->db->query('select * from documento where iddocumento="'. $documento[$clave+1]["iddocumento"].'"');
+		 }else{
+
+ 		$documento = $this->db->query('select * from documento where iddocumento="'. $id.'"');
+		 }
+		 	
+ 		return $documento;
+ 	}
+
+
+
+ 	function anterior($id){
+ 		$documento = $this->db->select("iddocumento")->get('documento')->result_array();
+		print_r($documento);
+		$arr=array("iddocumento"=>$id);
+		print_r($arr);
+		$clave=array_search($arr,$documento);
+	   if(array_key_exists($clave-1,$documento))
+		 {
+
+ 		$documento = $this->db->query('select * from documento where iddocumento="'. $documento[$clave-1]["iddocumento"].'"');
+		 }else{
+
+ 		$documento = $this->db->query('select * from documento where iddocumento="'. $id.'"');
+		 }
+		 	
+ 		return $documento;
+ 	}
+
+
+
+
+
+
+
+
+
 	function emisores( $iddocu)
 	{
  		$this->db->select('idpersona,nombres');
