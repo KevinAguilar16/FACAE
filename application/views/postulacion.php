@@ -21,7 +21,7 @@
 
 
         function fdocumento(docu){
-
+alert(docu);
           //  var result = checkFileExist(docu);
  // var result = checkFileExist("http://localhost/test/anyDirectoryName/");
     //        if (result == true) {
@@ -196,5 +196,5 @@ function nex(){
     </div>
 
 //<?php echo base_url().$this->session->userdata['logged_in']['pdf']; ?>
-<?php echo  '<script type="text/javascript">  fdocumento("'.base_url().$this->session->userdata['logged_in']['pdf'].'");</script>';?>
+<?php echo  '<script type="text/javascript">  fdocumento("'.base_url()."pdfs/".$documento['archivopdf'].'");</script>';?>
 </div>

@@ -1,120 +1,253 @@
-<html>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
 
-
-<body>
-
-<h2> <?php echo $title;  ?></h2>
-<hr/>
-<div id="eys-nav-i"><ul>
-        <li> <?php echo anchor('documento/primero/', 'primero'); ?></li>
-        <li> <?php echo anchor('documento/anterior/'.$documento['iddocumento'], 'anterior'); ?></li>
-        <li> <?php echo anchor('documento/siguiente/'.$documento['iddocumento'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('documento/ultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('documento/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('documento/edit/'.$documento['iddocumento'],'Edit'); ?></li>
-        <li> <?php echo anchor('documento/delete/'.$documento['iddocumento'],'Delete'); ?></li>
-        <li> <?php echo anchor('documento/canvas/'.$documento['archivopdf'],'Ver PDF'); ?></li>
-    </ul></div>
-
-<br>
-<br>
-
-
-<?php echo form_open('documento/save_edit') ?>
-<?php echo form_hidden('iddocumento',$documento['iddocumento']) ?>
-<table>
-
-  <tr>
-     <td>Tido de documento:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($tipodocus as $row){
-	$options[$row->idtipodocu]= $row->descripcion;
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top:  0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-echo form_input('idtipodocu',$options[$documento['idtipodocu']],array("disabled"=>"disabled")) ?></td>
-  </tr>
- 
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+</style>
 
 
-  <tr>
-     <td>iddocumento:</td>
-     <td><?php echo form_input('iddocumento',$documento['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos')) ?></td>
-  </tr>
- 
+<div class="row justify-content-center">
+      <!-- Page Heading -->
+ <div class="row">
+  <div class="col-12">
+             <div class="col-md-12">
+                 <h3>Documento - Listar 
+                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
+			  
+        	</h3>
+       	     </div>
+
+<table class="table table-striped table-bordered table-hover" id="mydatac">
+ <thead>
  <tr>
-      <td>Fecha Elaboracion:</td>
-      <td><?php echo form_input('fechaelaboracion',$documento['fechaelaboracion'],array('type'=>'date','placeholder'=>'fechaelaboracion')) ?></td>
-  </tr>
+ <th>ID</th>
+ <th>Elaboracion</th>
+ <th>Recibido</th>
+ <th>asunto</th>
+ <th>archivopdf</th>
+ <th style="text-align: right;">Actions</th>
+ </tr>
+ </thead>
 
-  <tr>
-      <td>Fecha Recepcion:</td>
-      <td><?php echo form_input('fechaentrerecep',$documento['fechaentrerecep'],array('type'=>'date', 'placeholder'=>'fechaentrerecep')) ?></td>
-  </tr>
+ <tbody id="show_data">
 
-  <tr>
-      <td>Emisor/es:</td>
-      <td><?php
- 	$options = array();
-  	foreach ($emisores as $row){
-		$options[$row->idpersona]=$row->nombres;
-	}
+ </tbody>
+</table>
+</div>
+</div>
+</div>
 
-
- echo form_multiselect('idemisor[]',$options,(array)set_value('idemisor', '')); ?></td>
-  </tr>
-
-
-  <tr>
-      <td>Destinatarios/as:</td>
-      <td><?php
-	$options=array();
-  	foreach ($destinatarios as $row){
-		$options[$row->idpersona]=$row->nombres;
-	}
-
-
- echo form_multiselect('iddestinatario[]',$options,(array)set_value('iddestinatario', '')); ?></td>
-  </tr>
+<div class="modal fade" id="Modal_pdf" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: 800px;">
 
 
 
 
 
+ <div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
 
+ </div>
+
+
+
+
+
+<!--
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.min.css" />
+ <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dataTables.min.js"></script>
+-->
+<script type="text/javascript">
+
+   var _PDF_DOC,
+        _CURRENT_PAGE,
+        _TOTAL_PAGES,
+        _PAGE_RENDERING_IN_PROGRESS = 0,
+        _CANVAS;
+
+
+
+        function checkFileExist(urlToFile) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('HEAD', urlToFile, false);
+            xhr.send();
+     
+            if (xhr.status == "404") {
+                    return false;
+            } else {
+                    return true;
+            }
+        }
+
+
+
+
+$(document).ready(function(){
+
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET'},});
+
+	 $('#show_data').on('click','.item_pdf',function(){
+		 var iddocumento = $(this).data('iddocumento');
+		 var archivopdf =  $(this).data('archivopdf');
+		alert(archivopdf);
+		 $('#Modal_pdf').modal('show');
+
+
+           document.getElementById("Modal_pdf").setAttribute('style',"height: 800px;");
+            document.getElementById("Modal_pdf").innerHTML ="<div id='pdf-main-container' style='position:relative;'><div id='pdf-loader'>Loading document ...</div><div id='pdf-contents'><div id='pdf-meta'>	<div id='pdf-buttons'><button onClick='previo()' id='pdf-prev'>Previous</button><button onClick='nex()' id='pdf-next'>Next</button></div><div id='page-count-container' >Page <div id='pdf-current-page'></div> of <div id='pdf-total-pages'></div></div></div><canvas id='pdf-canvas' width='400'></canvas><div id='page-loader'>Loading page ...</div></div></div>";
 
 
  
-  <tr>
-      <td>Asunto:</td>
-      <td><?php echo form_textarea('asunto',$documento['asunto'],array('placeholder'=>'asunto')) ?></td>
-  </tr>
+	          mostrar1(archivopdf);
 
 
-  <tr>
-     <td><a href="<?php echo base_url(); ?>index.php/documento/postulacion">Archivo_Pdf</a></td>
-     <td><?php echo form_textarea('archivopdf',$documento['archivopdf'],array('placeholder'=>'archivopdf')) ?></td>
-  </tr> 
-   <tr>
-      <td>Observacion:</td>
-      <td><?php echo form_textarea('observacion',$documento['observacion'],array('placeholder'=>'observacion')) ?></td>
-  </tr>
+		return false;
+	 });
 
-</table>
-<?php echo form_close(); ?>
+});
 
 
+// initialize and load the PDF
+    async function showPDF(pdf_url) {
+        document.querySelector("#pdf-loader").style.display = 'block';
+
+    // get handle of pdf document
+    try {
+        _PDF_DOC = await pdfjsLib.getDocument({ url: pdf_url });
+    }
+    catch(error) {
+        alert(error.message);
+    }
+
+    // total pages in pdf
+    _TOTAL_PAGES = _PDF_DOC.numPages;
+    
+    // Hide the pdf loader and show pdf container
+    document.querySelector("#pdf-loader").style.display = 'none';
+    document.querySelector("#pdf-contents").style.display = 'block';
+    document.querySelector("#pdf-total-pages").innerHTML = _TOTAL_PAGES;
+
+    // show the first page
+    showPage(1);
+}
+
+// load and render specific page of the PDF
+async function showPage(page_no) {
+    _PAGE_RENDERING_IN_PROGRESS = 1;
+    _CURRENT_PAGE = page_no;
+
+    // disable Previous & Next buttons while page is being loaded
+    document.querySelector("#pdf-next").disabled = true;
+    document.querySelector("#pdf-prev").disabled = true;
+
+    // while page is being rendered hide the canvas and show a loading message
+    document.querySelector("#pdf-canvas").style.display = 'none';
+    document.querySelector("#page-loader").style.display = 'block';
+
+    // update current page
+    document.querySelector("#pdf-current-page").innerHTML = page_no;
+    
+    // get handle of page
+    try {
+        var page = await _PDF_DOC.getPage(page_no);
+    }
+    catch(error) {
+        alert(error.message);
+    }
+
+    // original width of the pdf page at scale 1
+    var pdf_original_width = page.getViewport(1).width;
+    
+    // as the canvas is of a fixed width we need to adjust the scale of the viewport where page is rendered
+    var scale_required = _CANVAS.width / pdf_original_width;
+
+    // get viewport to render the page at required scale
+    var viewport = page.getViewport(scale_required);
+
+    // set canvas height same as viewport height
+    _CANVAS.height = viewport.height
+
+    // setting page loader height for smooth experience
+    document.querySelector("#page-loader").style.height =  _CANVAS.height + 'px';
+    document.querySelector("#page-loader").style.lineHeight = _CANVAS.height + 'px';
+
+    // page is rendered on <canvas> element
+    var render_context = {
+        canvasContext: _CANVAS.getContext('2d'),
+        viewport: viewport
+    };
+        
+    // render the page contents in the canvas
+    try {
+        await page.render(render_context);
+    }
+    catch(error) {
+        alert(error.message);
+    }
+
+    _PAGE_RENDERING_IN_PROGRESS = 0;
+
+    // re-enable Previous & Next buttons
+    document.querySelector("#pdf-next").disabled = false;
+    document.querySelector("#pdf-prev").disabled = false;
+
+    // show the canvas and hide the page loader
+    document.querySelector("#pdf-canvas").style.display = 'block';
+    document.querySelector("#page-loader").style.display = 'none';
+}
+
+
+function mostrar1(elpdf){
+//	cargaview();
+    _CANVAS = document.querySelector('#pdf-canvas');
+
+
+ //  document.querySelector("#show-pdf-button").style.display = 'none';
+
+   showPDF(elpdf);
+   //showPDF('https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf');
+}
+
+function previo(){
+   if(_CURRENT_PAGE != 1)
+        showPage(--_CURRENT_PAGE);
+
+}
+
+function nex(){
+
+    if(_CURRENT_PAGE != _TOTAL_PAGES)
+        showPage(++_CURRENT_PAGE);
+
+}
 
 
 
-</body>
 
 
 
 
 
+</script>
 
-
-
-
-</html>

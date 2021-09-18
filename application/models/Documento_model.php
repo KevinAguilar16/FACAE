@@ -6,6 +6,15 @@ class Documento_model extends CI_model {
 		 return $documento;
 	}
 
+
+ function list_documento()
+ {
+	 $documento = $this->db->query('select * from documento');
+	 return $documento;
+ }
+
+
+
  	function documento( $id){
  		$documento = $this->db->query('select * from documento where iddocumento="'. $id.'"');
  		return $documento;
@@ -14,9 +23,7 @@ class Documento_model extends CI_model {
 
  	function siguiente($id){
  		$documento = $this->db->select("iddocumento")->get('documento')->result_array();
-		print_r($documento);
 		$arr=array("iddocumento"=>$id);
-		print_r($arr);
 		$clave=array_search($arr,$documento);
 	   if(array_key_exists($clave+1,$documento))
 		 {
@@ -34,9 +41,7 @@ class Documento_model extends CI_model {
 
  	function anterior($id){
  		$documento = $this->db->select("iddocumento")->get('documento')->result_array();
-		print_r($documento);
 		$arr=array("iddocumento"=>$id);
-		print_r($arr);
 		$clave=array_search($arr,$documento);
 	   if(array_key_exists($clave-1,$documento))
 		 {

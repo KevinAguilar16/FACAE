@@ -10,6 +10,11 @@ if (isset($this->session->userdata['logged_in'])) {
 <link href='https://fonts.googleapis.com/css?family=Alex Brush' rel='stylesheet'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<!---- Para manejar el datatable -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.js"></script>
+
 <!----Para la linea de tiempl --->
 <style>
 
@@ -684,7 +689,7 @@ span a {
 
 
    
-<div id="eys-principal"  style=" border:5px solid blue; height=100hw; width:100%; float:right;  vertical-align:top; padding-bottom:2.5em; margin:10vh 0vh auto; position:relative;">
+<div id="eys-principal"  style="height=100hw; width:100%; float:right;  vertical-align:top; padding-bottom:2.5em; margin:10vh 0vh auto; position:relative;">
 
 
 

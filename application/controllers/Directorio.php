@@ -9,7 +9,7 @@ class Directorio extends CI_Controller{
 }
 
 public function index(){
-  $data['directorio_list']=$this->directorio_model->lista_directorio()->result();
+  $data['directorios']=$this->directorio_model->lista_directorio()->result();
  // print_r($data['usuario_list']);
   $data['title']="Lista de directorios";
 	$this->load->view('template/page_header');		
