@@ -10,7 +10,8 @@ class Usuario extends CI_Controller{
 }
 
 public function index(){
-  $data['usuario_list']=$this->usuario_model->listar_usuarios1()->result();
+	$data['unidad']=$this->usuario_model->usuario(1)->row_array();
+
  // print_r($data['usuario_list']);
   $data['title']="LIsta de Usuarios";
 	$this->load->view('template/page_header');		
