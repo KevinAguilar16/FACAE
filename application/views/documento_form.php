@@ -1,9 +1,20 @@
+<div id="eys-nav-i">
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 
-<div style="margin-top:5cm;">
-<h2> <?php echo $title; ?> </h2>
+<?php echo form_open("documento/save",array('id'=>'eys-form')); ?>
+
+
+    <ul>
+	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
+        <li> <?php echo anchor('documento', 'Cancelar'); ?></li>
+    </ul>
 </div>
-<hr/>
-<?php echo form_open("documento/save") ?>
+<br>
+
+
+
+
+
 <?php echo form_hidden("iddocumento")  ?>
 <table>
 
@@ -48,9 +59,6 @@ foreach ($tipodocus as $row){
 <td><?php echo form_textarea("observacion","", array("placeholder"=>"observacion"))  ?></td>
 </tr>
 
-<tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Updata Item!"); ?><?php echo anchor("documento","Back") ?> </td>
-</tr>
 
 </table>
 <?php echo form_close();?>

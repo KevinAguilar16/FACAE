@@ -1,11 +1,7 @@
-<html>
-
-
-<body>
-
 <div id="eys-nav-i">
 
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+<?php echo form_open('documento/save_edit') ?>
     <ul>
         <li> <?php echo anchor('documento/primero/', 'primero'); ?></li>
         <li> <?php echo anchor('documento/anterior/'.$documento['iddocumento'], 'anterior'); ?></li>
@@ -19,10 +15,8 @@
     </ul>
 </div>
 <br>
-<br>
 
 
-<?php echo form_open('documento/save_edit') ?>
 <?php echo form_hidden('iddocumento',$documento['iddocumento']) ?>
 <table>
 

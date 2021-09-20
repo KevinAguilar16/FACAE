@@ -117,7 +117,7 @@ DROP TABLE IF EXISTS `directorio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `directorio` (
-  `iddirectorio` int NOT NULL,
+  `iddirectorio` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   `ruta` varchar(200) DEFAULT NULL,
   `descripcion` text,
@@ -125,7 +125,7 @@ CREATE TABLE `directorio` (
   PRIMARY KEY (`iddirectorio`,`idordenador`),
   KEY `fk_directorio_ordenador1_idx` (`idordenador`),
   CONSTRAINT `fk_directorio_ordenador1` FOREIGN KEY (`idordenador`) REFERENCES `ordenador` (`idordenador`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,6 +134,7 @@ CREATE TABLE `directorio` (
 
 LOCK TABLES `directorio` WRITE;
 /*!40000 ALTER TABLE `directorio` DISABLE KEYS */;
+INSERT INTO `directorio` VALUES (1,'pdf',NULL,NULL,1),(2,'pdf','/pdfs',NULL,1);
 /*!40000 ALTER TABLE `directorio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,7 +181,7 @@ CREATE TABLE `documento` (
   PRIMARY KEY (`iddocumento`,`idtipodocu`),
   KEY `fk_documento_tipodocu1_idx` (`idtipodocu`),
   CONSTRAINT `fk_documento_tipodocu1` FOREIGN KEY (`idtipodocu`) REFERENCES `tipodocu` (`idtipodocu`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -189,7 +190,7 @@ CREATE TABLE `documento` (
 
 LOCK TABLES `documento` WRITE;
 /*!40000 ALTER TABLE `documento` DISABLE KEYS */;
-INSERT INTO `documento` VALUES (1,'2021-09-02','Documento de prueba','Planificacion-MTI.pdf','2021-09-22 00:00:00','Este es un documento de prueba que se sube',0),(3,'2021-09-17','prueba de documento recibido','M-O_Ingenieria-Software-Sistemas-Informaticos_esp.pdf','2021-09-23 00:00:00','Esta es un documeot de prueba',1),(4,'2021-09-24','RECLAMO SOBRE NOTAS','Folleto digital - MDS.pdf','2021-09-30 00:00:00','UN RECLAMO SOBRE NOTAS ATRASADAS ',3);
+INSERT INTO `documento` VALUES (1,'2021-09-02','Documento de prueba','Planificacion-MTI.pdf','2021-09-22 00:00:00','Este es un documento de prueba que se sube',2),(3,'2021-09-17','prueba de documento recibido','HojaDeVida-hola.pdf','2021-09-23 00:00:00','Esta es un documeot de prueba',1),(4,'2021-09-24','RECLAMO SOBRE NOTAS','Folleto digital - MDS.pdf','2021-09-30 00:00:00','UN RECLAMO SOBRE NOTAS ATRASADAS ',3),(5,'2021-09-18','SOLICITUD DE MATRICULA PARA EL PERIODO 2021-1S','PagoRosangelaMesEnero.pdf','2021-09-20 00:00:00','EL DOCUMENTO ES UN PAGO',2);
 /*!40000 ALTER TABLE `documento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -629,4 +630,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-16 23:07:05
+-- Dump completed on 2021-09-19 20:12:57

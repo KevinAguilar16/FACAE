@@ -14,7 +14,7 @@ public function index(){
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
   $data['emisores'] =$this->documento_model->emisores(1)->result();
   $data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
-  $data['title']="Documento";
+  $data['title']="Uste esta visualizando Documentos por registro";
 	$this->load->view('template/page_header');		
   $this->load->view('documento_record',$data);
 	$this->load->view('template/page_footer');
@@ -112,7 +112,7 @@ public function anterior(){
 
 public function add()
 {
-		$data['title']="Nuevo Documento";
+		$data['title']="Usted esta Creando un nuevo Documento";
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('documento_form',$data);
@@ -143,6 +143,7 @@ public function add()
 public function edit()
 {
 	 	$data['documento'] = $this->documento_model->documento($this->uri->segment(3))->row_array();
+  $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
  	 	$data['title'] = "Actualizar Documento";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('documento_edit',$data);
@@ -157,11 +158,12 @@ public function edit()
 	 	$array_item=array(
 		 	
 			'iddocumento' => $this->input->post('iddocumento'),
+		 	'idtipodocu' => $this->input->post('idtipodocu'),
 			'archivopdf' => $this->input->post('archivopdf'),
 			'asunto' => $this->input->post('asunto'),
-		    'fechaelaboracion' => $this->input->post('fechaelaboracion'),
-		    'fechaentrerecep' => $this->input->post('fechaentrerecep'),
-		    'observacion' => $this->input->post('observacion'),
+		  'fechaelaboracion' => $this->input->post('fechaelaboracion'),
+		  'fechaentrerecep' => $this->input->post('fechaentrerecep'),
+		  'observacion' => $this->input->post('observacion'),
 	 	);
 	 	$this->documento_model->update($id,$array_item);
 	 	redirect('documento');
@@ -179,7 +181,7 @@ function show_pdf() {
 	 	$data['documento'] = $this->documento_model->documento($this->uri->segment(3))->row_array();
  $this->load->view('template/page_header');
  $data['blog_text'] = "POSTULACION"; 
- $this->load->view('postulacion',$data);
+ $this->load->view('cargapdf',$data);
  $this->load->view('template/page_footer'); 
  }
 

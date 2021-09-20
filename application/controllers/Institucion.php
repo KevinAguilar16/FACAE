@@ -8,11 +8,11 @@ class Institucion extends CI_Controller{
 }
 
 public function index(){
-  $data['institucion_list']=$this->institucion_model->lista_institucion()->result();
+  $data['institucion']=$this->institucion_model->institucion(1)->row_array();
  // print_r($data['usuario_list']);
   $data['title']="Lista de Instituciones";
 	$this->load->view('template/page_header');		
-  $this->load->view('institucion_list',$data);
+  $this->load->view('institucion_record',$data);
 	$this->load->view('template/page_footer');
 }
 

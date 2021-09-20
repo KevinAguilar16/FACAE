@@ -8,11 +8,15 @@ class Ordenador extends CI_Controller{
 }
 
 public function index(){
-  $data['ordenador_list']=$this->ordenador_model->lista_ordenador()->result();
+  $data['ordenador']=$this->ordenador_model->ordenador(1)->row_array();
  // print_r($data['usuario_list']);
   $data['title']="Lista de ordenadores";
-	$this->load->view('template/page_header');		
-  $this->load->view('ordenador_list',$data);
+        if(isset($dat['ordenador'])){
+	$this->load->view('template/page_header');
+	}else{
+        echo "no hay registro";
+}		
+  $this->load->view('ordenador_record',$data);
 	$this->load->view('template/page_footer');
 }
 

@@ -1,11 +1,39 @@
-<?php echo form_open('documento/save_edit') ?>
-<?php echo form_hidden('iddocumento',$documento['iddocumento']) ?>
-<div style="margin-top=5cm">
-<h2> <?php echo $title; ?></h2>
+<div id="eys-nav-i">
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+
+
+<?php echo form_open('documento/save_edit',array('id'=>'eys-form')); ?>
+
+
+  <ul>
+	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
+        <li> <?php echo anchor('documento', 'Cancelar'); ?></li>
+    </ul>
 </div>
-<hr />
+<br>
+
+
+
+<?php echo form_hidden('iddocumento',$documento['iddocumento']) ?>
+
 <table>
-  
+
+<tr>
+<td> Tipo de documento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($tipodocus as $row){
+	$options[$row->idtipodocu]= $row->descripcion;
+}
+
+ echo form_dropdown("idtipodocu",$options, $documento['idtipodocu']);  ?></td>
+</tr>
+
+
+
+
+
+
   <tr>
      <td>iddocumento:</td>
      <td><?php echo form_input('iddocumento',$documento['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos')) ?></td>
@@ -36,8 +64,5 @@
       <td><?php echo form_textarea('observacion',$documento['observacion'],array('placeholder'=>'observacion')) ?></td>
   </tr>
 
- <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Update Item!'); ?> <?php echo anchor('documento','Back') ?></td>
- </tr>
 </table>
 <?php echo form_close(); ?>

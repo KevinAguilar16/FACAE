@@ -9,11 +9,15 @@ class Directorio extends CI_Controller{
 }
 
 public function index(){
-  $data['directorios']=$this->directorio_model->lista_directorio()->result();
+  $data['directorio']=$this->directorio_model->directorio(1)->row_array();
  // print_r($data['usuario_list']);
   $data['title']="Lista de directorios";
 	$this->load->view('template/page_header');		
-  $this->load->view('directorio_list',$data);
+        if(isset($data['directorio'])){
+  $this->load->view('directorio_record',$data);
+        }else{
+	echo "no hay registro";
+	}
 	$this->load->view('template/page_footer');
 }
 
@@ -37,6 +41,8 @@ public function add()
 		 	'iddirectorio' => $this->input->post('iddirectorio'),
 		 	'nombre' => $this->input->post('nombre'),
 			'idordenador' => $this->input->post('idordenador'),
+			'ruta' => $this->input->post('ruta'),
+			'descripcion' => $this->input->post('descripcion'),
 	 	);
 	 	$this->directorio_model->save($array_item);
 	 	redirect('directorio');
@@ -67,6 +73,27 @@ public function edit()
 	 	redirect('directorio');
  	}
 
+
+public function siguiente(){
+ // $data['directorio_list']=$this->directorio_model->lista_directorio()->result();
+	$data['directorio'] = $this->directorio_model->siguiente($this->uri->segment(3))->row_array();
+  $data['ordenadores']= $this->ordenador_model->lista_ordenador()->result();
+  $data['title']="Documento";
+	$this->load->view('template/page_header');		
+  $this->load->view('directorio_record',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+public function anterior(){
+ // $data['directorio_list']=$this->directorio_model->lista_directorio()->result();
+	$data['directorio'] = $this->directorio_model->anterior($this->uri->segment(3))->row_array();
+  $data['ordenadores']= $this->ordenador_model->lista_ordenador()->result();
+  $data['title']="Documento";
+	$this->load->view('template/page_header');		
+  $this->load->view('directorio_record',$data);
+	$this->load->view('template/page_footer');
+}
 
 
 

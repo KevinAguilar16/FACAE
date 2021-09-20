@@ -23,4 +23,41 @@ class Directorio_model extends CI_model {
 	}
  
 
+
+ 	function siguiente($id){
+ 		$directorio = $this->db->select("iddirectorio")->get('directorio')->result_array();
+		$arr=array("iddirectorio"=>$id);
+		$clave=array_search($arr,$directorio);
+	   if(array_key_exists($clave+1,$directorio))
+		 {
+
+ 		$directorio = $this->db->query('select * from directorio where iddirectorio="'. $directorio[$clave+1]["iddirectorio"].'"');
+		 }else{
+
+ 		$directorio = $this->db->query('select * from directorio where iddirectorio="'. $id.'"');
+		 }
+		 	
+ 		return $directorio;
+ 	}
+
+
+ 	function anterior($id){
+ 		$directorio = $this->db->select("iddirectorio")->get('directorio')->result_array();
+		$arr=array("iddirectorio"=>$id);
+		$clave=array_search($arr,$directorio);
+	   if(array_key_exists($clave-1,$directorio))
+		 {
+
+ 		$directorio = $this->db->query('select * from directorio where iddirectorio="'. $directorio[$clave-1]["iddirectorio"].'"');
+		 }else{
+
+ 		$directorio = $this->db->query('select * from directorio where iddirectorio="'. $id.'"');
+		 }
+		 	
+ 		return $directorio;
+ 	}
+
+
+
+
 }
