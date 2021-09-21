@@ -8,11 +8,11 @@ class Tipodocu extends CI_Controller{
 }
 
 public function index(){
-  $data['tipodocu_list']=$this->tipodocu_model->lista_tipodocu()->result();
- // print_r($data['usuario_list']);
-  $data['title']="Tipos de documentos";
+  	$data['tipodocu']=$this->tipodocu_model->tipodocu(1)->row_array();
+ 
+  	$data['title']="Tipos de documentos";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipodocu_list',$data);
+  	$this->load->view('tipodocu_record',$data);
 	$this->load->view('template/page_footer');
 }
 

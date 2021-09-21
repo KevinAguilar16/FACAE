@@ -10,11 +10,11 @@ class Unidad extends CI_Controller{
 
 public function index(){
 
-  $data['unidad']=$this->unidad_model->unidad(1)->row_array();
-  $data['instituciones']= $this->institucion_model->lista_institucion()->result();
+  	$data['unidad']=$this->unidad_model->unidad(1)->row_array();
+  	$data['instituciones']= $this->institucion_model->lista_institucion()->result();
   
  // print_r($data['usuario_list']);
-  $data['title']="Lista de Unidades";
+ 	 $data['title']="Lista de Unidades";
 	$this->load->view('template/page_header');		
  	 $this->load->view('unidad_record',$data);
 	$this->load->view('template/page_footer');
