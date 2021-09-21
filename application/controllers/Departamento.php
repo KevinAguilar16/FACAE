@@ -9,11 +9,12 @@ class Departamento extends CI_Controller{
 }
 
 public function index(){
-  $data['departamento_list']=$this->departamento_model->lista_departamento()->result();
+  $data['departamento']=$this->departamento_model->departamento(1)->row_array(); 
+  $data['unidades']= $this->unidad_model->lista_unidad()->result();
  // print_r($data['usuario_list']);
   $data['title']="Lista de Departamentos";
 	$this->load->view('template/page_header');		
-  $this->load->view('departamento_list',$data);
+    $this->load->view('departamento_record',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -36,6 +37,7 @@ public function add()
 		 	
 		 	'idunidad' => $this->input->post('idunidad'),
 		 	'nombre' => $this->input->post('nombre'),
+			
 	 	);
 	 	$this->departamento_model->save($array_item);
 	 	redirect('departamento');
