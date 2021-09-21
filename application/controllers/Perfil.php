@@ -8,11 +8,12 @@ class Perfil extends CI_Controller{
 }
 
 public function index(){
-  $data['perfil_list']=$this->perfil_model->lista_perfil()->result();
+  $data['perfil']=$this->perfil_model->perfil(1)->row_array();
+
  // print_r($data['usuario_list']);
-  $data['title']="LIsta de Perfiles";
+ 	 $data['title']="LIsta de Perfiles";
 	$this->load->view('template/page_header');		
-  $this->load->view('perfil_list',$data);
+  	$this->load->view('perfil_record',$data);
 	$this->load->view('template/page_footer');
 }
 
