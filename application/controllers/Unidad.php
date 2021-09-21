@@ -16,7 +16,7 @@ public function index(){
  // print_r($data['usuario_list']);
   $data['title']="Lista de Unidades";
 	$this->load->view('template/page_header');		
-  $this->load->view('unidad_record',$data);
+ 	 $this->load->view('unidad_record',$data);
 	$this->load->view('template/page_footer');
 }
 
