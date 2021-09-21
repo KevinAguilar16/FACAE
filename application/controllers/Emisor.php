@@ -10,11 +10,14 @@ class Emisor extends CI_Controller{
 }
 
 public function index(){
-  $data['emisor_list']=$this->emisor_model->listar_emisor1()->result();
+  $data['documentos']= $this->documento_model->lista_documento()->result();
+  $data['personas']= $this->persona_model->lista_persona()->result();
+  $data['emisor']=$this->emisor_model->emisor(1)->row_array();
+
  // print_r($data['usuario_list']);
   $data['title']="Lista de Emisores";
 	$this->load->view('template/page_header');		
-  $this->load->view('emisor_list',$data);
+  $this->load->view('emisor_record',$data);
 	$this->load->view('template/page_footer');
 }
 

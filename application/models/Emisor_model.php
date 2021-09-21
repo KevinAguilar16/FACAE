@@ -13,10 +13,9 @@ class Emisor_model extends CI_model {
 
 
 
-
- 	function usuario( $id){
- 		$usuario = $this->db->query('select * from usuario where idusuario="'. $id.'"');
- 		return $usuario;
+ 	function emisor( $id){
+ 		$emisor = $this->db->query('select * from emisor where iddocumento="'. $id.'"');
+ 		return $emisor;
  	}
 
  	function save($array)
