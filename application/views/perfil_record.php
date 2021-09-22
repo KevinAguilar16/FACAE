@@ -25,14 +25,14 @@
 
 
   <tr>
-     <td>idperfil:</td>
+     <td>Id Perfil:</td>
      <td><?php echo form_input('idperfil',$perfil['idperfil'],array("disabled"=>"disabled",'placeholder'=>'Idperfils')) ?></td>
   </tr>
  
  
  
   <tr>
-     <td>descripcion:</td>
+     <td>Descripción:</td>
      <td><?php echo form_input('descripcion',$perfil['descripcion'],array("disabled"=>"disabled",'placeholder'=>'descripcion')) ?></td>
   </tr>
 

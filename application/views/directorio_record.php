@@ -30,7 +30,7 @@
 
 
   <tr>
-     <td>id:</td>
+     <td>Id:</td>
      <td><?php echo form_input('iddirectorio',$directorio['iddirectorio'],array("disabled"=>"disabled",'placeholder'=>'Iddirectorios')) ?></td>
   </tr>
  

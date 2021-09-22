@@ -7,12 +7,12 @@
 <?php echo form_hidden("idusuario")  ?>
 <table>
 <tr>
-<td> Password </td>
+<td> Contraseña </td>
 <td><?php echo form_input("password","", array("placeholder"=>"Password"))  ?></td>
 </tr>
 
 <tr>
-<td> idpersona </td>
+<td> Id Persona </td>
 <td><?php
 $options= array('--Select--');
 foreach ($personas as $row){
@@ -24,7 +24,7 @@ foreach ($personas as $row){
 
 
 <tr>
-<td> idperfil </td>
+<td> Id Perfil </td>
 <td><?php 
 
 $options= array('--Select--');
@@ -36,12 +36,12 @@ foreach ($perfiles as $row){
 </tr>
 
 <tr>
-<td> email </td>
+<td> Email </td>
 <td><?php echo form_input("email","", array("placeholder"=>"email"))  ?></td>
 </tr>
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Updata Item!"); ?><?php echo anchor("usuario","Back") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("usuario","Atrás") ?> </td>
 </tr>
 
 </table>

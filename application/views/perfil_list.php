@@ -5,7 +5,7 @@
 
 <h2> <?php echo $title;  ?></h2>
 <hr/>
-<?php echo anchor('perfil/add', 'NUEVA PERFIL'); ?>
+<?php echo anchor('perfil/add', 'NUEVO PERFIL'); ?>
 <br>
 <br>
 

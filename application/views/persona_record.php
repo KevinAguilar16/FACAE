@@ -21,26 +21,26 @@
 <table>
 
   <tr>
-     <td>idpersona:</td>
+     <td>Id Persona:</td>
      <td><?php echo form_input('idpersona',$persona['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idpersonas')) ?></td>
   </tr>
  
  
  
   <tr>
-     <td>cedula:</td>
+     <td>Cedula:</td>
      <td><?php echo form_input('cedula',$persona['cedula'],array("disabled"=>"disabled",'placeholder'=>'cedula')) ?></td>
   </tr>
 
  
   <tr>
-     <td>apellidos:</td>
+     <td>Apellidos:</td>
      <td><?php echo form_input('apellidos',$persona['apellidos'],array("disabled"=>"disabled",'placeholder'=>'apellidos')) ?></td>
   </tr>
   
  
   <tr>
-     <td>nombres:</td>
+     <td>Nombres:</td>
      <td><?php echo form_input('nombres',$persona['nombres'],array("disabled"=>"disabled",'placeholder'=>'nombres')) ?></td>
   </tr>
 

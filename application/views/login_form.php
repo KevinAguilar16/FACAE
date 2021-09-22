@@ -38,7 +38,7 @@ if (isset($message_display)) {
 </div>
 <div class="w3-container" style="padding-top:5px;">
 <?php
-  		$data=array('type'=>'submit','value'=>'Guardar datos','name'=>'submit','style'=>'background-color: #4CAF50; border: 0; border-radius: 10px; cursor: pointer; color: #fff; font-size:16px; font-weight: bold;line-height: 1.4; padding: 10px;   width: 100%;');
+  		$data=array('type'=>'submit','value'=>'Ingresar','name'=>'submit','style'=>'background-color: #4CAF50; border: 0; border-radius: 10px; cursor: pointer; color: #fff; font-size:16px; font-weight: bold;line-height: 1.4; padding: 10px;   width: 100%;');
   		echo	form_submit($data);
   		echo form_close();
   	?>

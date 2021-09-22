@@ -25,7 +25,7 @@
 </tr>
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Updata Item!"); ?><?php echo anchor("persona","Back") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("persona","Atras") ?> </td>
 </tr>
 
 </table>

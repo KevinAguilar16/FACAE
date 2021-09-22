@@ -21,7 +21,7 @@
 <table>
 
 <tr>
-     <td>iddocumento:</td>
+     <td>Id Documento:</td>
      <td><?php echo form_input('iddocumento',$destinatario['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos')) ?></td>
   </tr>
 <tr>
@@ -37,7 +37,7 @@ echo form_input('iddocumento',$options[$destinatario['iddocumento']],array("disa
  
  
   <tr>
-     <td>idpersona:</td>
+     <td>Id Persona:</td>
      <td><?php echo form_input('idpersona',$destinatario['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Iddestinatarioes')) ?></td>
   </tr>
 <tr>

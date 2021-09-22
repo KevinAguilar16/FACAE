@@ -26,14 +26,14 @@
 
 
   <tr>
-     <td>idtipodocu:</td>
+     <td>Id Tipo Doc:</td>
      <td><?php echo form_input('idtipodocu',$tipodocu['idtipodocu'],array("disabled"=>"disabled",'placeholder'=>'Idtipodocus')) ?></td>
   </tr>
  
  
  
   <tr>
-     <td>Descripcion:</td>
+     <td>Descripción:</td>
      <td><?php echo form_input('descripcion',$tipodocu['descripcion'],array("disabled"=>"disabled",'placeholder'=>'descripcion')) ?></td>
   </tr>
 
