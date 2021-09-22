@@ -13,11 +13,12 @@ public function index(){
   $data['title']="Lista de ordenadores";
         if(isset($dat['ordenador'])){
 	$this->load->view('template/page_header');
+	$this->load->view('ordenador_record',$data);
+	$this->load->view('template/page_footer');
 	}else{
         echo "no hay registro";
 }		
-  $this->load->view('ordenador_record',$data);
-	$this->load->view('template/page_footer');
+ 
 }
 
 
