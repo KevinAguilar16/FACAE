@@ -622,16 +622,16 @@ span a {
 
 
             <li><a id="MTI" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/usuario'><img src="<?php echo base_url(); ?>assets/iconos/usuario.png" wide="49" height="50" alt="Formget logo"></a></li>
-            <li><a id="MCA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/persona'><img src="<?php echo base_url(); ?>assets/iconos/persona.png" wide="49" height="50" alt="Formget logo"></a></li>
-            <li><a id="MFI" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/perfil'><img src="<?php echo base_url(); ?>assets/iconos/perfil.png" wide="49" height="50" alt="Formget logo"></a></li>
+            <li><a id="MCA" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/persona'><img src="<?php echo base_url(); ?>assets/iconos/persona.png" wide="49" height="50" alt="Formget logo"></a></li>
+            <li><a id="MFI" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/perfil'><img src="<?php echo base_url(); ?>assets/iconos/perfil.png" wide="49" height="50" alt="Formget logo"></a></li>
 
 
 
-    <li><a id="TDO" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/tipodocu'><img src="<?php echo base_url(); ?>assets/iconos/tipodocu.png" wide="49" height="50" alt="Formget logo"></a></li>
-    <li><a id="MGA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/documento'><img src="<?php echo base_url(); ?>assets/iconos/documento.png" wide="49" height="50" alt="Formget logo"></a></li>
+    <li><a id="TDO" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/tipodocu'><img src="<?php echo base_url(); ?>assets/iconos/tipodocu.png" wide="49" height="50" alt="Formget logo"></a></li>
+    <li><a id="MGA" style="font-size:80%;color:orange;" href=' <?php echo base_url(); ?>index.php/documento'><img src="<?php echo base_url(); ?>assets/iconos/documento.png" wide="49" height="50" alt="Formget logo"></a></li>
     
-    <li><a id="MEM" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/emisor'><img src="<?php echo base_url(); ?>assets/iconos/emisor.png" wide="49" height="50" alt="Formget logo"></a></li>
-    <li><a id="MMD" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/destinatario'><img src="<?php echo base_url(); ?>assets/iconos/destinatario.png" wide="49" height="50" alt="Formget logo"></a></li>
+    <li><a id="MEM" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/emisor'><img src="<?php echo base_url(); ?>assets/iconos/emisor.png" wide="49" height="50" alt="Formget logo"></a></li>
+    <li><a id="MMD" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/destinatario'><img src="<?php echo base_url(); ?>assets/iconos/destinatario.png" wide="49" height="50" alt="Formget logo"></a></li>
 
 <!--    <li><a id="MEM" style="font-size:0.8vw;" href="#">6.-Maestría en Educación, Mención en Enseñanza de la Matemática</a></li>
     <li><a id="MMD" style="font-size:0.8vw;" href="#">7.-Maestría en Matemática, Mención Modelación y Docencia</a></li>
