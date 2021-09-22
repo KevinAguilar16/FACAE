@@ -10,11 +10,14 @@ class Destinatario extends CI_Controller{
 }
 
 public function index(){
-  $data['destinatario_list']=$this->destinatario_model->listar_destinatario1()->result();
+  $data['documentos']= $this->documento_model->lista_documento()->result();
+  $data['personas']= $this->persona_model->lista_persona()->result();
+  $data['destinatario']=$this->destinatario_model->listar_destinatario1(1)->row_array();
+
  // print_r($data['usuario_list']);
   $data['title']="Lista de Destinatarios";
 	$this->load->view('template/page_header');		
-  $this->load->view('destinatario_list',$data);
+  $this->load->view('destinatario_record',$data);
 	$this->load->view('template/page_footer');
 }
 
