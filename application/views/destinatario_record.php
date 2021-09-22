@@ -38,7 +38,7 @@ echo form_input('iddocumento',$options[$destinatario['iddocumento']],array("disa
  
   <tr>
      <td>idpersona:</td>
-     <td><?php echo form_input('idpersona',$destinatario['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Iddestinatarioes')) ?></td>
+     <td><?php echo form_input('idpersona',$destinatario['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Iddestinatarios')) ?></td>
   </tr>
 <tr>
      <td>Persona:</td>
