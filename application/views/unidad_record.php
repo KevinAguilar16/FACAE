@@ -35,14 +35,14 @@ echo form_input('idinstitucion',$options[$unidad['idinstitucion']],array("disabl
 
 
   <tr>
-     <td>idunidad:</td>
+     <td>Id Unidad:</td>
      <td><?php echo form_input('idunidad',$unidad['idunidad'],array("disabled"=>"disabled",'placeholder'=>'Idunidads')) ?></td>
   </tr>
  
  
  
   <tr>
-     <td>nombre:</td>
+     <td>Nombre:</td>
      <td><?php echo form_input('nombre',$unidad['nombre'],array("disabled"=>"disabled",'placeholder'=>'Nombre')) ?></td>
   </tr>
 

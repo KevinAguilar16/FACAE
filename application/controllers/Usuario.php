@@ -53,7 +53,7 @@ public function edit()
 	 	$data['usuario'] = $this->usuario_model->usuario($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_persona()->result();
 		$data['perfiles']= $this->perfil_model->lista_perfil()->result();
- 	 	$data['title'] = "Actualizar Persona";
+ 	 	$data['title'] = "Actualizar Usuario";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('usuario_edit',$data);
 	 	$this->load->view('template/page_footer');

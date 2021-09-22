@@ -14,7 +14,7 @@ public function index(){
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
   $data['emisores'] =$this->documento_model->emisores(1)->result();
   $data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
-  $data['title']="Uste esta visualizando Documentos por registro";
+  $data['title']="Usted esta visualizando Documentos por registro";
 	$this->load->view('template/page_header');		
   $this->load->view('documento_record',$data);
 	$this->load->view('template/page_footer');

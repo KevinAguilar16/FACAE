@@ -21,7 +21,7 @@
 <table>
 
   <tr>
-     <td>Tido de documento:</td>
+     <td>Tipo de documento:</td>
      <td><?php 
 $options= array("NADA");
 foreach ($tipodocus as $row){
@@ -34,17 +34,17 @@ echo form_input('idtipodocu',$options[$documento['idtipodocu']],array("disabled"
 
 
   <tr>
-     <td>iddocumento:</td>
+     <td>Id Documento:</td>
      <td><?php echo form_input('iddocumento',$documento['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos')) ?></td>
   </tr>
  
  <tr>
-      <td>Fecha Elaboracion:</td>
+      <td>Fecha Elaboración:</td>
       <td><?php echo form_input('fechaelaboracion',$documento['fechaelaboracion'],array('type'=>'date','placeholder'=>'fechaelaboracion')) ?></td>
   </tr>
 
   <tr>
-      <td>Fecha Recepcion:</td>
+      <td>Fecha Recepción:</td>
       <td><?php echo form_input('fechaentrerecep',$documento['fechaentrerecep'],array('type'=>'date', 'placeholder'=>'fechaentrerecep')) ?></td>
   </tr>
 
@@ -92,7 +92,7 @@ echo form_input('idtipodocu',$options[$documento['idtipodocu']],array("disabled"
      <td><?php echo form_textarea('archivopdf',$documento['archivopdf'],array('placeholder'=>'archivopdf')) ?></td>
   </tr> 
    <tr>
-      <td>Observacion:</td>
+      <td>Observación:</td>
       <td><?php echo form_textarea('observacion',$documento['observacion'],array('placeholder'=>'observacion')) ?></td>
   </tr>
 

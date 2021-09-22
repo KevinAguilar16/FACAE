@@ -30,12 +30,12 @@
 
 
   <tr>
-     <td>idinstitucion:</td>
+     <td>Id Institucion:</td>
      <td><?php echo form_input('idinstitucion',$institucion['idinstitucion'],array("disabled"=>"disabled",'placeholder'=>'Idinstitucions')) ?></td>
   </tr>
  
  <tr>
-      <td>Nombres:</td>
+      <td>Nombre:</td>
       <td><?php echo form_input('nombre',$institucion['nombre'],array('placeholder'=>'Nombre del institucion')) ?></td>
   </tr>
 

@@ -5,16 +5,16 @@
 <table>
  
    <tr>
-     <td>idperfil</td>
+     <td>Id Perfil</td>
      <td><?php echo form_textarea('idperfil',$perfil['idperfil'],array('placeholder'=>'Idpefil')) ?></td>
   </tr> 
   <tr>
-      <td>descripcion:</td>
+      <td>Descripcion:</td>
       <td><?php echo form_input('descripcion',$perfil['descripcion'],array('placeholder'=>'descripcion')) ?></td>
   </tr>
  
  <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Update Item!'); ?> <?php echo anchor('usuario','Back') ?></td>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Actualizar'); ?> <?php echo anchor('perfil','Atrás') ?></td>
  </tr>
 </table>
 <?php echo form_close(); ?>

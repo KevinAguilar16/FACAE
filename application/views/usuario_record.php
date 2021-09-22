@@ -45,19 +45,19 @@ echo form_input('idperfil',$options[$usuario['idperfil']],array("disabled"=>"dis
 
 
   <tr>
-     <td>idusuario:</td>
+     <td>Id Usuario:</td>
      <td><?php echo form_input('idusuario',$usuario['idusuario'],array("disabled"=>"disabled",'placeholder'=>'Idusuarios')) ?></td>
   </tr>
  
  
  
   <tr>
-     <td>password:</td>
+     <td>Contraseña:</td>
      <td><?php echo form_input('password',$usuario['password'],array("disabled"=>"disabled",'placeholder'=>'password')) ?></td>
   </tr>
 
   <tr>
-     <td>email:</td>
+     <td>Email:</td>
      <td><?php echo form_input('email',$usuario['email'],array("disabled"=>"disabled",'placeholder'=>'email')) ?></td>
   </tr>
   

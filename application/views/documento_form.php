@@ -33,7 +33,7 @@ foreach ($tipodocus as $row){
 
 
 <tr>
-<td> fecha elaboracion </td>
+<td> Fecha Elaboracion </td>
 <td><?php echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion","type"=>"date"));  ?></td>
 </tr>
 
@@ -43,19 +43,19 @@ foreach ($tipodocus as $row){
 </tr>
 
 <tr>
-<td> asunto </td>
+<td> Asunto </td>
 <td><?php echo form_textarea("asunto","", array("placeholder"=>"asunto"))  ?></td>
 </tr>
 
 
 
 <tr>
-<td> archivo_pdf </td>
+<td> Archivo_pdf </td>
 <td><?php echo form_upload("archivopdf","archivopdf")  ?></td>
 </tr>
 
 <tr>
-<td> Observacion </td>
+<td> Observación </td>
 <td><?php echo form_textarea("observacion","", array("placeholder"=>"observacion"))  ?></td>
 </tr>
 

@@ -8,7 +8,7 @@
 
 
 <tr>
-<td> asunto </td>
+<td> Asunto: </td>
 <td><?php 
 
 $options= array('--Select--');
@@ -35,7 +35,7 @@ foreach ($personas as $row){
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Updata Item!"); ?><?php echo anchor("usuario","Back") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("emisor","Atrás") ?> </td>
 </tr>
 
 </table>

@@ -35,13 +35,13 @@ echo form_input('idunidad',$options[$departamento['idunidad']],array("disabled"=
 
 
   <tr>
-     <td>iddepartamento:</td>
+     <td>Id Departamento:</td>
      <td><?php echo form_input('iddepartamento',$departamento['iddepartamento'],array("disabled"=>"disabled",'placeholder'=>'Iddepartamentos')) ?></td>
   </tr>
 
  
   <tr>
-     <td>nombre:</td>
+     <td>Nombre:</td>
      <td><?php echo form_input('nombre',$departamento['nombre'],array("disabled"=>"disabled",'placeholder'=>'Nombre')) ?></td>
   </tr>
 

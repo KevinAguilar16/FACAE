@@ -26,7 +26,7 @@ public function add()
 {
 		$data['personas']= $this->persona_model->lista_persona()->result();
 		$data['documentos']= $this->documento_model->lista_documento()->result();
-		$data['title']="Nuevo Emidor";
+		$data['title']="Nuevo Emisor";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('emisor_form',$data);
 	 	$this->load->view('template/page_footer');
