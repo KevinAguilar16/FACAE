@@ -15,28 +15,18 @@ document.getElementById("eys-principal").style.width="90%";
 //  document.getElementById("eys-contenido-g").style.marginLeft = "300px";
     document.getElementById("abrir").style.display = "none";
     document.getElementById("cerrar").style.display = "inline";
-
-
     document.getElementById("ORD").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/ordenador.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Ordenador";
     document.getElementById("DIR").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/directorio.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Directorio";
     document.getElementById("INS").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/institucion.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Institución";
     document.getElementById("UNI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/unidad.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Unidad";
     document.getElementById("DEP").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/departamento.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Departamento";
-
     document.getElementById("MTI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/usuario.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Usuarios";
     document.getElementById("MCA").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/persona.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Personas";
     document.getElementById("MFI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/perfil.png\" wide=\"50\" height=\"50\" alt=\"Formget logo\"> - Perfil";
-
-
     document.getElementById("TDO").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/tipodocu.png\" wide=\"50\" height=\"50\" alt=\"Formget logo\"> - Tipo Docu";
     document.getElementById("MGA").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/documento.png\" wide=\"50\" height=\"50\" alt=\"Formget logo\"> - Documento";
     document.getElementById("MEM").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/emisor.png\" wide=\"50\" height=\"50\" alt=\"Formget logo\"> - Emisor";
     document.getElementById("MMD").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/destinatario.png\" wide=\"50\" height=\"50\" alt=\"Formget logo\"> - Destinatario";
-  //  document.getElementById("MEM").innerHTML="6.-Maestría en Educación, Mención en Enseñanza de la Matemática";
-   // document.getElementById("MMD").innerHTML="7.-Maestría en Matemática, Mención Modelación y Docencia";
-   // document.getElementById("MEE").innerHTML="8.-Maestría en Mecánica, Mención en Eficiencia Energética";
-  //  document.getElementById("MLI").innerHTML="10.-Maestría en Comencio, Mención Gestión Logística Internacional";
-  //  document.getElementById("MDP").innerHTML="11.-Maestría en Derecho Penal"
 }
 
 function ocultar() {

@@ -610,34 +610,20 @@ span a {
     <div id="sidebar" class="sidebar">
         <a href="#" class="boton-cerrar" onclick="ocultar()">&times;</a>
 
-        <ul class="menu" >
+ <ul class="menu" >
+ <li><a id="ORD" style="font-size:80%; color:orange;" href='<?php echo base_url(); ?>index.php/ordenador'><img src="<?php echo base_url(); ?>assets/iconos/ordenador.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="DIR" style="font-size:80%; color:orange;" href='<?php echo base_url(); ?>index.php/directorio'><img src="<?php echo base_url(); ?>assets/iconos/directorio.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="INS" style="font-size:80%; color:orange;" href='<?php echo base_url(); ?>index.php/institucion'><img src="<?php echo base_url(); ?>assets/iconos/institucion.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="UNI" style="font-size:80%; color:orange;" href='<?php echo base_url(); ?>index.php/unidad'><img src="<?php echo base_url(); ?>assets/iconos/unidad.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="DEP" style="font-size:80%; color:orange;" href='<?php echo base_url(); ?>index.php/departamento'><img src="<?php echo base_url(); ?>assets/iconos/departamento.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="MTI" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/usuario'><img src="<?php echo base_url(); ?>assets/iconos/usuario.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="MCA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/persona'><img src="<?php echo base_url(); ?>assets/iconos/persona.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="MFI" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/perfil'><img src="<?php echo base_url(); ?>assets/iconos/perfil.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="TDO" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/tipodocu'><img src="<?php echo base_url(); ?>assets/iconos/tipodocu.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="MGA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/documento'><img src="<?php echo base_url(); ?>assets/iconos/documento.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="MEM" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/emisor'><img src="<?php echo base_url(); ?>assets/iconos/emisor.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="MMD" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/destinatario'><img src="<?php echo base_url(); ?>assets/iconos/destinatario.png" wide="49" height="50" alt="Formget logo"></a></li>
 
-
-            <li><a id="ORD" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/ordenador'><img src="<?php echo base_url(); ?>assets/iconos/ordenador.png" wide="49" height="50" alt="Formget logo"></a></li>
-            <li><a id="DIR" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/directorio'><img src="<?php echo base_url(); ?>assets/iconos/directorio.png" wide="49" height="50" alt="Formget logo"></a></li>
-            <li><a id="INS" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/institucion'><img src="<?php echo base_url(); ?>assets/iconos/institucion.png" wide="49" height="50" alt="Formget logo"></a></li>
-            <li><a id="UNI" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/unidad'><img src="<?php echo base_url(); ?>assets/iconos/unidad.png" wide="49" height="50" alt="Formget logo"></a></li>
-            <li><a id="DEP" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/departamento'><img src="<?php echo base_url(); ?>assets/iconos/departamento.png" wide="49" height="50" alt="Formget logo"></a></li>
-
-
-
-            <li><a id="MTI" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/usuario'><img src="<?php echo base_url(); ?>assets/iconos/usuario.png" wide="49" height="50" alt="Formget logo"></a></li>
-            <li><a id="MCA" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/persona'><img src="<?php echo base_url(); ?>assets/iconos/persona.png" wide="49" height="50" alt="Formget logo"></a></li>
-            <li><a id="MFI" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/perfil'><img src="<?php echo base_url(); ?>assets/iconos/perfil.png" wide="49" height="50" alt="Formget logo"></a></li>
-
-
-
-    <li><a id="TDO" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/tipodocu'><img src="<?php echo base_url(); ?>assets/iconos/tipodocu.png" wide="49" height="50" alt="Formget logo"></a></li>
-    <li><a id="MGA" style="font-size:80%;color:orange;" href=' <?php echo base_url(); ?>index.php/documento'><img src="<?php echo base_url(); ?>assets/iconos/documento.png" wide="49" height="50" alt="Formget logo"></a></li>
-    
-    <li><a id="MEM" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/emisor'><img src="<?php echo base_url(); ?>assets/iconos/emisor.png" wide="49" height="50" alt="Formget logo"></a></li>
-    <li><a id="MMD" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/destinatario'><img src="<?php echo base_url(); ?>assets/iconos/destinatario.png" wide="49" height="50" alt="Formget logo"></a></li>
-
-<!--    <li><a id="MEM" style="font-size:0.8vw;" href="#">6.-Maestría en Educación, Mención en Enseñanza de la Matemática</a></li>
-    <li><a id="MMD" style="font-size:0.8vw;" href="#">7.-Maestría en Matemática, Mención Modelación y Docencia</a></li>
-    <li><a id="MEE" style="font-size:0.8vw;" href="#">8.-Maestría en Mecánica, Mención en Eficiencia Energética</a></li>
-    <li><a id="MLI" style="font-size:0.8vw;" href="#">10.-Maestría en Comencio, Mención Gestión Logística Internacional</a></li>
-    <li><a id="MDP" style="font-size:0.8vw;" href="#">11.-Maestría en Derecho Penal</a></li> -->
 </ul>
 
 

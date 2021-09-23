@@ -14,7 +14,7 @@ public function index(){
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
   $data['emisores'] =$this->documento_model->emisores(1)->result();
   $data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
-  $data['title']="Usted esta visualizando Documentos por registro";
+  $data['title']="Uste esta visualizando Documentos por registro";
 	$this->load->view('template/page_header');		
   $this->load->view('documento_record',$data);
 	$this->load->view('template/page_footer');
@@ -41,7 +41,7 @@ public function actual(){
 public function listar()
 {
 	
-  $data['documentos'] = $this->documento_model->documento(1)->row_array();
+  $data['documento'] = $this->documento_model->lista_documentos()->result();
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
   $data['emisores'] =$this->documento_model->emisores(1)->result();
   $data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
@@ -58,7 +58,7 @@ function documento_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->documento_model->list_documento();
+	 	$data0 = $this->documento_model->lista_documentos();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->iddocumento,$r->fechaelaboracion,$r->fechaentrerecep,$r->asunto,$r->archivopdf,
@@ -75,6 +75,60 @@ function documento_data()
 			
 
 }
+
+public function elprimero()
+{
+
+	$data['documento'] = $this->documento_model->elprimero();
+  if(!empty($data))
+  {
+    $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+    $data['emisores'] =$this->documento_model->emisores($data['documento']['iddocumento'])->result();
+    $data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
+    $data['title']="Documento";
+  
+    $this->load->view('template/page_header');		
+    $this->load->view('documento_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+
+  }
+  
+  }
+
+
+public function elultimo()
+{
+
+	$data['documento'] = $this->documento_model->elultimo();
+  if(!empty($data))
+  {
+    $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+    $data['emisores'] =$this->documento_model->emisores($data['documento']['iddocumento'])->result();
+    $data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
+    $data['title']="Documento";
+  
+    $this->load->view('template/page_header');		
+    $this->load->view('documento_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+
+  }
+  
+  }
+
+
+
+
+
 
 
 
@@ -143,8 +197,10 @@ public function add()
 public function edit()
 {
 	 	$data['documento'] = $this->documento_model->documento($this->uri->segment(3))->row_array();
-  $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
- 	 	$data['title'] = "Actualizar Documento";
+    $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+    $data['emisores'] =$this->documento_model->emisores($this->uri->segment(3))->result();
+    $data['destinatarios'] = $this->documento_model->destinatarios($this->uri->segment(3))->result();
+    $data['title'] = "Actualizar Documento";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('documento_edit',$data);
 	 	$this->load->view('template/page_footer');
@@ -187,35 +243,51 @@ function show_pdf() {
 
 
 
+function loadpdf2()
+{
+ /* Get the name of the uploaded file */
+$filename = $_FILES['file']['name'];
+
+/* Choose where to save the uploaded file */
+$location = "uploads/".$filename;
+
+/* Save the uploaded file to the local filesystem */
+if ( move_uploaded_file($_FILES['file']['tmp_name'], $location) ) { 
+  echo 'Success'; 
+} else { 
+  echo 'Failure'; 
+}
+
+}
+
+
+
+
  function loadpdf() {
-  echo "Hola  -  ";
-$target_dir =  $_SERVER["DOCUMENT_ROOT"]."/facae/".trim($this->session->userdata['logged_in']['pdf']);  //"uploads/";
+
+//$filename = $_FILES['fileToUpload']['name'];
+$filename = $_POST('archivopdf');
+
+echo $filename;
+die();
+$target_dir =  $_SERVER["DOCUMENT_ROOT"]."/facae/pdfs/".$filename;
+//$target_dir =  $_SERVER["DOCUMENT_ROOT"]."/facae/".trim($this->session->userdata['logged_in']['pdf']);  //"uploads/";
 $target_file =$target_dir; // $target_dir . basename($_FILES["fileToUpload"]["name"]);
   echo $target_file.' - ';
+
+
+//die();
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
   echo "-".$imageFileType;
-// Check if image file is a actual image or fake image
-/*if(isset($_POST["submit"])) {
-  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-  if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
-    $uploadOk = 1;
-  } else {
-    echo "File is not an image.";
-    $uploadOk = 0;
-  }
-}
- */
 // Check if file already exists
 if (file_exists($target_file)) {
   echo "Sorry, file already exists.";
   $uploadOk = 0;
 }
-
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 1000000) {
+if ($_FILES["filepdf"]["size"] > 1000000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
 }
@@ -234,12 +306,60 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
 	echo "----".$_FILES["fileToUpload"]["tmp_name"];
-  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+  if (move_uploaded_file($_FILES["filepdf"]["tmp_name"], $target_file)) {
+    echo "The file ". htmlspecialchars( basename( $_FILES["filepdf"]["name"])). " has been uploaded.";
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
 }
+}
+
+
+
+function loadpdf3()
+{
+
+// Count total files
+$countfiles = count($_FILES['files']['name']);
+
+
+
+$upload_location =  $_SERVER["DOCUMENT_ROOT"]."/facae/pdfs/";
+
+// Upload directory
+//$upload_location = "uploads/";
+
+$count = 0;
+for($i=0;$i < $countfiles;$i++){
+
+   // File name
+   $filename = $_FILES['files']['name'][$i];
+   $filename = $_POST["archivopdf"];
+   // File path
+   $path = $upload_location.$filename;
+
+   // file extension
+   $file_extension = pathinfo($path, PATHINFO_EXTENSION);
+   $file_extension = strtolower($file_extension);
+
+   // Valid file extensions
+   $valid_ext = array("pdf","doc","docx","jpg","png","jpeg");
+
+   // Check extension
+   if(in_array($file_extension,$valid_ext)){
+
+      // Upload file
+      if(move_uploaded_file($_FILES['files']['tmp_name'][$i],$path)){
+        $count += 1;
+      } 
+   }
+
+}
+
+echo $count;
+exit;
+
+
 }
 
 
