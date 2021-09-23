@@ -21,6 +21,47 @@ public function index(){
 }
 
 
+
+//==============================================
+// Llamar al formulario para un nuevo documento.
+// ==============================================
+
+public function add()
+{
+		$data['title']="Usted esta Creando un nuevo Documento";
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+	 	$this->load->view('template/page_header');		
+	 	$this->load->view('documento_form',$data);
+	 	$this->load->view('template/page_footer');
+
+
+}
+
+
+//==============================================
+// Guardar el nuevo documento.
+// ==============================================
+	public function  save()
+	{
+	 	$array_item=array(
+		 	
+		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'idtipodocu' => $this->input->post('idtipodocu'),
+		 	'archivopdf' => $this->input->post('archivopdf'),
+		 	'asunto' => $this->input->post('asunto'),
+			'fechaelaboracion' => $this->input->post('fechaelaboracion'),
+			'fechaentrerecep' => $this->input->post('fechaentrerecep'),
+			'observacion' => $this->input->post('observacion'),
+	 	);
+	 	$this->documento_model->save($array_item);
+	 	redirect('documento');
+ 	}
+
+
+
+
+
+
 public function actual(){
 
 
@@ -163,34 +204,6 @@ public function anterior(){
 
 
 
-
-public function add()
-{
-		$data['title']="Usted esta Creando un nuevo Documento";
-		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('documento_form',$data);
-	 	$this->load->view('template/page_footer');
-
-
-}
-
-
-	public function  save()
-	{
-	 	$array_item=array(
-		 	
-		 	'iddocumento' => $this->input->post('iddocumento'),
-		 	'idtipodocu' => $this->input->post('idtipodocu'),
-		 	'archivopdf' => $this->input->post('archivopdf'),
-		 	'asunto' => $this->input->post('asunto'),
-			'fechaelaboracion' => $this->input->post('fechaelaboracion'),
-			'fechaentrerecep' => $this->input->post('fechaentrerecep'),
-			'observacion' => $this->input->post('observacion'),
-	 	);
-	 	$this->documento_model->save($array_item);
-	 	redirect('documento');
- 	}
 
 
 

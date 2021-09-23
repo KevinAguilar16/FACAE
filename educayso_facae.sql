@@ -181,7 +181,7 @@ CREATE TABLE `documento` (
   PRIMARY KEY (`iddocumento`,`idtipodocu`),
   KEY `fk_documento_tipodocu1_idx` (`idtipodocu`),
   CONSTRAINT `fk_documento_tipodocu1` FOREIGN KEY (`idtipodocu`) REFERENCES `tipodocu` (`idtipodocu`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +190,7 @@ CREATE TABLE `documento` (
 
 LOCK TABLES `documento` WRITE;
 /*!40000 ALTER TABLE `documento` DISABLE KEYS */;
-INSERT INTO `documento` VALUES (1,'2021-09-02','Documento de prueba','Planificacion-MTI.pdf','2021-09-22 00:00:00','Este es un documento de prueba que se sube',2),(3,'2021-09-17','prueba de documento recibido','HojaDeVida-hola.pdf','2021-09-23 00:00:00','Esta es un documeot de prueba',1),(4,'2021-09-24','RECLAMO SOBRE NOTAS','Folleto digital - MDS.pdf','2021-09-30 00:00:00','UN RECLAMO SOBRE NOTAS ATRASADAS ',3),(5,'2021-09-18','SOLICITUD DE MATRICULA PARA EL PERIODO 2021-1S','PagoRosangelaMesEnero.pdf','2021-09-20 00:00:00','EL DOCUMENTO ES UN PAGO',2);
+INSERT INTO `documento` VALUES (1,'2021-09-02','Documento de prueba','Planificacion-MTI.pdf','2021-09-22 00:00:00','Este es un documento de prueba que se sube',2),(3,'2021-09-17','prueba de documento recibido','2021-09-17-MBOD-000003.pdf','2021-09-23 00:00:00','Esta es un documeot de prueba',1),(4,'2021-09-24','RECLAMO SOBRE NOTAS','cronograma_y_plana_docente_Maestrías_2021-2021.pdf','2021-09-30 00:00:00','UN RECLAMO SOBRE NOTAS ATRASADAS ',3),(5,'2021-09-18','SOLICITUD DE MATRICULA PARA EL PERIODO 2021-1S','PagoRosangelaMesEnero.pdf','2021-09-20 00:00:00','EL DOCUMENTO ES UN PAGO',2),(6,'2021-09-21','CORRECCION DE NOTAS DEL SEGUNDO PARCIAL 2021-1S','','2021-09-22 00:00:00','ESTE DOCUMENTO LO RECIBO EN LA OFICION ',1);
 /*!40000 ALTER TABLE `documento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -351,7 +351,7 @@ CREATE TABLE `ordenador` (
   `idordenador` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idordenador`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -360,7 +360,7 @@ CREATE TABLE `ordenador` (
 
 LOCK TABLES `ordenador` WRITE;
 /*!40000 ALTER TABLE `ordenador` DISABLE KEYS */;
-INSERT INTO `ordenador` VALUES (1,'LANUBE');
+INSERT INTO `ordenador` VALUES (1,'Archivos.org'),(4,'OFICINASECRETARIA');
 /*!40000 ALTER TABLE `ordenador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -630,4 +630,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-19 20:12:57
+-- Dump completed on 2021-09-23 16:12:36
