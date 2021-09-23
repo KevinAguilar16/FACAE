@@ -10,7 +10,7 @@ class Emisor extends CI_Controller{
 }
 
 public function index(){
-  $data['documentos']= $this->documento_model->lista_documento()->result();
+  $data['documentos']= $this->documento_model->lista_documentos()->result();
   $data['personas']= $this->persona_model->lista_persona()->result();
   $data['emisor']=$this->emisor_model->emisor(1)->row_array();
 
@@ -25,7 +25,7 @@ public function index(){
 public function add()
 {
 		$data['personas']= $this->persona_model->lista_persona()->result();
-		$data['documentos']= $this->documento_model->lista_documento()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['title']="Nuevo Emisor";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('emisor_form',$data);
