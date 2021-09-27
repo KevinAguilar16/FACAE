@@ -15,11 +15,11 @@ document.getElementById("eys-principal").style.width="90%";
 //  document.getElementById("eys-contenido-g").style.marginLeft = "300px";
     document.getElementById("abrir").style.display = "none";
     document.getElementById("cerrar").style.display = "inline";
-    document.getElementById("ORD").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/ordenador.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Ordenador";
-    document.getElementById("DIR").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/directorio.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Directorio";
     document.getElementById("INS").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/institucion.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Institución";
     document.getElementById("UNI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/unidad.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Unidad";
     document.getElementById("DEP").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/departamento.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Departamento";
+    document.getElementById("ORD").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/ordenador.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Ordenador";
+    document.getElementById("DIR").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/directorio.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Directorio";
     document.getElementById("MTI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/usuario.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Usuarios";
     document.getElementById("MCA").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/persona.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\"> - Personas";
     document.getElementById("MFI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/perfil.png\" wide=\"50\" height=\"50\" alt=\"Formget logo\"> - Perfil";
@@ -37,12 +37,12 @@ document.getElementById("eys-principal").style.width="95%";
     document.getElementById("cerrar").style.display = "none";
 
 
-    document.getElementById("ORD").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/ordenador.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
-    document.getElementById("DIR").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/directorio.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
     document.getElementById("INS").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/institucion.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
     document.getElementById("UNI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/unidad.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
     document.getElementById("DEP").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/departamento.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
 
+    document.getElementById("ORD").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/ordenador.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
+    document.getElementById("DIR").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/directorio.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
     document.getElementById("MTI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/usuario.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
     document.getElementById("MCA").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/persona.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";
     document.getElementById("MFI").innerHTML="<img src=\"<?php echo base_url(); ?>assets/iconos/perfil.png\" wide=\"49\" height=\"50\" alt=\"Formget logo\">";

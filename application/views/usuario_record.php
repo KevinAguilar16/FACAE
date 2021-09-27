@@ -3,10 +3,10 @@
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 <?php echo form_open('usuario/save_edit') ?>
     <ul>
-        <li> <?php echo anchor('usuario/primero/', 'primero'); ?></li>
+        <li> <?php echo anchor('usuario/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('usuario/anterior/'.$usuario['idusuario'], 'anterior'); ?></li>
-        <li> <?php echo anchor('usuario/siguiente/'.$usuario['idusuario'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('usuario/ultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('usuario/siguiente/'.$usuario['idusuario'],'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('usuario/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('usuario/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('usuario/edit/'.$usuario['idusuario'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('usuario/delete/'.$usuario['idusuario'],'Delete'); ?></li>

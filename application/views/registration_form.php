@@ -7,7 +7,7 @@
 				<div class="w3-card-2"  style="width:100%; height:700px; ">
 					<header class="w3-container" style="background-color:#4CAF50;">
 						<p style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:25px; color:white;
-                text-align:center;">Registrate para postular</p>
+                text-align:center;">Registrate a nuestra plataforma</p>
 					</header>
 				<div class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
 				<?php

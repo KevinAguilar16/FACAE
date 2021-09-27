@@ -66,11 +66,12 @@ $data['message_display'] = 'Registration Successfully !';
 $this->load->view('login_form', $data);
 	 $this->load->view('template/page_footer.php');
 } else {
-$data['message_display'] = 'Username already exist!';
+	$data['perfiles']= $this->perfil_model->lista_perfil()->result();
+	$data['message_display'] = 'Username already exist!';
  	//$data['programa_list'] = $this->programa_model->list_programa()->result();
 	 $this->load->view('template/page_header.php');
 //$this->load->view('registration_form', $data);
-$this->load->view('registration_form');
+$this->load->view('registration_form',$data);
 	 $this->load->view('template/page_footer.php');
 }
 }

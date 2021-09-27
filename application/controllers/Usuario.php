@@ -75,6 +75,121 @@ public function edit()
  	}
 
 
+public function listar()
+{
+	
+  $data['usuario'] = $this->usuario_model->lista_usuarios()->result();
+  $data['perfil']= $this->perfil_model->lista_perfil()->result();
+  $data['title']="Usuarios";
+	$this->load->view('template/page_header');		
+  $this->load->view('usuario_list',$data);
+	$this->load->view('template/page_footer');
+}
+
+function usuario_data()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+
+
+	 	$data0 = $this->usuario_model->lista_usuarios();
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->idusuario,$r->idpersona,$r->idperfil,$r->password,$r->email,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_pdf"  data-idusuario="'.$r->idusuario.'" data-archivopdf="'.base_url()."pdfs/".$r->email.'">pdf</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+	
+			
+
+}
+
+public function elprimero()
+{
+
+	$data['usuario'] = $this->usuario_model->elprimero();
+	$data['personas']= $this->persona_model->lista_persona()->result();
+	$data['perfiles']= $this->perfil_model->lista_perfil()->result();
+  if(!empty($data))
+  {
+    $data['title']="Usuario";
+  
+    $this->load->view('template/page_header');		
+    $this->load->view('usuario_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+
+  }
+  
+  }
+
+
+public function elultimo()
+{
+
+	$data['usuario'] = $this->usuario_model->elultimo();
+	$data['personas']= $this->persona_model->lista_persona()->result();
+	$data['perfiles']= $this->perfil_model->lista_perfil()->result();
+  if(!empty($data))
+  {
+    $data['title']="Usuario";
+  
+    $this->load->view('template/page_header');		
+    $this->load->view('usuario_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+
+  }
+  
+  }
+
+
+
+
+
+
+
+
+
+public function siguiente(){
+ // $data['usuario_list']=$this->usuario_model->lista_usuario()->result();
+	$data['usuario'] = $this->usuario_model->siguiente($this->uri->segment(3))->row_array();
+	$data['personas']= $this->persona_model->lista_persona()->result();
+	$data['perfiles']= $this->perfil_model->lista_perfil()->result();
+  $data['title']="Usuario";
+	$this->load->view('template/page_header');		
+  $this->load->view('usuario_record',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+public function anterior(){
+ // $data['usuario_list']=$this->usuario_model->lista_usuario()->result();
+	$data['usuario'] = $this->usuario_model->anterior($this->uri->segment(3))->row_array();
+	$data['personas']= $this->persona_model->lista_persona()->result();
+	$data['perfiles']= $this->perfil_model->lista_perfil()->result();
+  $data['title']="Usuario";
+	$this->load->view('template/page_header');		
+  $this->load->view('usuario_record',$data);
+	$this->load->view('template/page_footer');
+}
+
+
 
 
 

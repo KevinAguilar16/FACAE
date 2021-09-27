@@ -24,8 +24,6 @@ public function add()
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('ordenador_form',$data);
 	 	$this->load->view('template/page_footer');
-
-
 }
 
 
