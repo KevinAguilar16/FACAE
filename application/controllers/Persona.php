@@ -8,20 +8,18 @@ class Persona extends CI_Controller{
 }
 
 public function index(){
-  $data['persona']=$this->persona_model->persona(6)->row_array();
- // print_r($data['persona_list']);
-  $data['title']="Lista de Persona";
+ if(isset($this->session->userdata['logged_in'])){
+	$data['persona']=$this->persona_model->persona(6)->row_array();
+	$data['title']="Modulo de Personas";
 	$this->load->view('template/page_header');		
-  $this->load->view('persona_record',$data);
+	$this->load->view('persona_record',$data);
 	$this->load->view('template/page_footer');
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
 }
-
-
-
-
-
-
-
 
 public function add()
 {
@@ -30,8 +28,6 @@ public function add()
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('persona_form',$data);
 	 	$this->load->view('template/page_footer');
-
-
 }
 
 

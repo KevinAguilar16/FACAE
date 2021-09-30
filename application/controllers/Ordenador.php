@@ -8,13 +8,17 @@ class Ordenador extends CI_Controller{
 }
 
 public function index(){
-  $data['ordenador']=$this->ordenador_model->ordenador(1)->row_array();
- // print_r($data['usuario_list']);
-  $data['title']="Lista de ordenadores";
-	$this->load->view('template/page_header');
-	$this->load->view('ordenador_record',$data);
-	$this->load->view('template/page_footer');
- 
+	if(isset($this->session->userdata['logged_in'])){
+		$data['ordenador']=$this->ordenador_model->ordenador(1)->row_array();
+		$data['title']="Lista de ordenadores";
+		$this->load->view('template/page_header');
+		$this->load->view('ordenador_record',$data);
+		$this->load->view('template/page_footer');
+	}else{
+	 	$this->load->view('template/page_header.php');
+		$this->load->view('login_form');
+	 	$this->load->view('template/page_footer.php');
+	}
 }
 
 

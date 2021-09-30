@@ -8,12 +8,20 @@ class Institucion extends CI_Controller{
 }
 
 public function index(){
-  $data['institucion']=$this->institucion_model->institucion(1)->row_array();
- // print_r($data['usuario_list']);
-  $data['title']="Lista de Instituciones";
-	$this->load->view('template/page_header');		
-  $this->load->view('institucion_record',$data);
-	$this->load->view('template/page_footer');
+
+	if(isset($this->session->userdata['logged_in'])){
+	  	$data['institucion']=$this->institucion_model->institucion(1)->row_array();
+  		$data['title']="Lista de Instituciones";
+			$this->load->view('template/page_header');		
+  		$this->load->view('institucion_record',$data);
+			$this->load->view('template/page_footer');
+	}else{
+	 	$this->load->view('template/page_header.php');
+		$this->load->view('login_form');
+	 	$this->load->view('template/page_footer.php');
+	}
+
+
 }
 
 

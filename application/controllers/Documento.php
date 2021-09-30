@@ -9,15 +9,21 @@ class Documento extends CI_Controller{
 }
 
 public function index(){
- // $data['documento_list']=$this->documento_model->lista_documento()->result();
-  $data['documento'] = $this->documento_model->documento(1)->row_array();
-  $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-  $data['emisores'] =$this->documento_model->emisores(1)->result();
-  $data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
-  $data['title']="Uste esta visualizando Documentos por registro";
+ if(isset($this->session->userdata['logged_in'])){
+	$data['documento'] = $this->documento_model->documento(1)->row_array();
+	$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+	$data['emisores'] =$this->documento_model->emisores(1)->result();
+	$data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
+	$data['title']="Uste esta visualizando Documentos por registro";
 	$this->load->view('template/page_header');		
-  $this->load->view('documento_record',$data);
+	$this->load->view('documento_record',$data);
 	$this->load->view('template/page_footer');
+
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
 }
 
 
