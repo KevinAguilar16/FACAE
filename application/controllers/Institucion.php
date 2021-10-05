@@ -11,7 +11,7 @@ public function index(){
 
 	if(isset($this->session->userdata['logged_in'])){
 	  	$data['institucion']=$this->institucion_model->institucion(1)->row_array();
-  		$data['title']="Lista de Instituciones";
+  		$data['title']="Lista de Empresas";
 			$this->load->view('template/page_header');		
   		$this->load->view('institucion_record',$data);
 			$this->load->view('template/page_footer');
