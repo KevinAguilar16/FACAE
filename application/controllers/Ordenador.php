@@ -31,12 +31,11 @@ public function add()
 }
 
 
-	public function  save()
+public function  save()
 	{
 	 	$array_item=array(
-		 	
-		 	'idordenador' => $this->input->post('idordenador'),
-		 	'nombre' => $this->input->post('nombre'),
+	 	'idordenador' => $this->input->post('idordenador'),
+	 	'nombre' => $this->input->post('nombre'),
 	 	);
 	 	$this->ordenador_model->save($array_item);
 	 	redirect('ordenador');
@@ -123,29 +122,22 @@ function ordenador_data()
 
 public function elprimero()
 {
-
 	$data['ordenador'] = $this->ordenador_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Ordenador";
-  
     $this->load->view('template/page_header');		
     $this->load->view('ordenador_record',$data);
     $this->load->view('template/page_footer');
   }else{
-
     $this->load->view('template/page_header');		
     $this->load->view('registro_vacio');
     $this->load->view('template/page_footer');
-
   }
-  
-  }
-
+ }
 
 public function elultimo()
 {
-
 	$data['ordenador'] = $this->ordenador_model->elultimo();
   if(!empty($data))
   {
@@ -159,18 +151,8 @@ public function elultimo()
     $this->load->view('template/page_header');		
     $this->load->view('registro_vacio');
     $this->load->view('template/page_footer');
-
   }
-  
-  }
-
-
-
-
-
-
-
-
+}
 
 public function siguiente(){
  // $data['ordenador_list']=$this->ordenador_model->lista_ordenador()->result();
@@ -181,7 +163,6 @@ public function siguiente(){
 	$this->load->view('template/page_footer');
 }
 
-
 public function anterior(){
  // $data['ordenador_list']=$this->ordenador_model->lista_ordenador()->result();
 	$data['ordenador'] = $this->ordenador_model->anterior($this->uri->segment(3))->row_array();
@@ -190,11 +171,5 @@ public function anterior(){
   $this->load->view('ordenador_record',$data);
 	$this->load->view('template/page_footer');
 }
-
-
-
-
-
-
 
 }

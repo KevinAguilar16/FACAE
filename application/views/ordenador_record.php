@@ -22,7 +22,6 @@ if(isset($ordenador))
 <?php
 }
 ?>
-
     </ul>
 </div>
 <br>

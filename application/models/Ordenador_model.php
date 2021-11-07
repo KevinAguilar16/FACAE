@@ -28,7 +28,7 @@ class Ordenador_model extends CI_model {
 	{
  		$this->db->where('idordenador',$id);
 		$this->db->delete('ordenador');
-    if($this->db->affected_rows()==1)
+    		if($this->db->affected_rows()==1)
 			$result=true;
 		else
 			$result=false;

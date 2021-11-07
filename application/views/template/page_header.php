@@ -613,16 +613,27 @@ span a {
  <ul class="menu" >
  <li><a id="INS" style="font-size:80%; color:orange;" href='<?php echo base_url(); ?>index.php/institucion'><img src="<?php echo base_url(); ?>assets/iconos/institucion.png" wide="49" height="50" alt="Formget logo"></a></li>
  <li><a id="UNI" style="font-size:80%; color:orange;" href='<?php echo base_url(); ?>index.php/unidad'><img src="<?php echo base_url(); ?>assets/iconos/unidad.png" wide="49" height="50" alt="Formget logo"></a></li>
- <li><a id="DEP" style="font-size:80%; color:orange;" href='<?php echo base_url(); ?>index.php/departamento'><img src="<?php echo base_url(); ?>assets/iconos/departamento.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="DEP" style="border-bottom: 1px solid red; font-size:80%; color:orange;" href='<?php echo base_url(); ?>index.php/departamento'><img src="<?php echo base_url(); ?>assets/iconos/departamento.png" wide="49" height="50" alt="Formget logo"></a></li>
  <li><a id="ORD" style="font-size:80%; color:orange;" href='<?php echo base_url(); ?>index.php/ordenador'><img src="<?php echo base_url(); ?>assets/iconos/ordenador.png" wide="49" height="50" alt="Formget logo"></a></li>
  <li><a id="DIR" style="font-size:80%; color:orange;" href='<?php echo base_url(); ?>index.php/directorio'><img src="<?php echo base_url(); ?>assets/iconos/directorio.png" wide="49" height="50" alt="Formget logo"></a></li>
  <li><a id="MTI" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/usuario'><img src="<?php echo base_url(); ?>assets/iconos/usuario.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="MAE" style="font-size:80%; color:orange;" href=' <?php echo base_url(); ?>index.php/maestrante'><img src="<?php echo base_url(); ?>assets/iconos/maestrante.png" wide="49" height="50" alt="Formget logo"></a></li>
  <li><a id="MCA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/persona'><img src="<?php echo base_url(); ?>assets/iconos/persona.png" wide="49" height="50" alt="Formget logo"></a></li>
  <li><a id="MFI" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/perfil'><img src="<?php echo base_url(); ?>assets/iconos/perfil.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="PAR" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/participante'><img src="<?php echo base_url(); ?>assets/iconos/participante.png" wide="49" height="50" alt="Formget logo"></a></li>
  <li><a id="TDO" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/tipodocu'><img src="<?php echo base_url(); ?>assets/iconos/tipodocu.png" wide="49" height="50" alt="Formget logo"></a></li>
  <li><a id="MGA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/documento'><img src="<?php echo base_url(); ?>assets/iconos/documento.png" wide="49" height="50" alt="Formget logo"></a></li>
  <li><a id="MEM" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/emisor'><img src="<?php echo base_url(); ?>assets/iconos/emisor.png" wide="49" height="50" alt="Formget logo"></a></li>
  <li><a id="MMD" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/destinatario'><img src="<?php echo base_url(); ?>assets/iconos/destinatario.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="INF" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/informe'><img src="<?php echo base_url(); ?>assets/iconos/informes.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="EVE" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/evento'><img src="<?php echo base_url(); ?>assets/iconos/evento.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="COR" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/correo'><img src="<?php echo base_url(); ?>assets/iconos/correo.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="TEL" style=" border-bottom: 1px solid red;  font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/telefono'><img src="<?php echo base_url(); ?>assets/iconos/telefono.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="EVA" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/evaluacion'><img src="<?php echo base_url(); ?>assets/iconos/evaluacion.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="PRE" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/pregunta'><img src="<?php echo base_url(); ?>assets/iconos/pregunta.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="RES" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/respuesta'><img src="<?php echo base_url(); ?>assets/iconos/respuesta.png" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="EVD" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/evaluado'><img src="<?php echo base_url(); ?>assets/iconos/evaluado.jpg" wide="49" height="50" alt="Formget logo"></a></li>
+ <li><a id="RES" style="font-size:0.8vw; color:orange;" href=' <?php echo base_url(); ?>index.php/resultado'><img src="<?php echo base_url(); ?>assets/iconos/resultado.png" wide="49" height="50" alt="Formget logo"></a></li>
 
 </ul>
 

@@ -24,7 +24,7 @@ public function index(){
 
 public function add()
 {
-		$data['ordenadores']= $this->ordenador_model->lista_ordenador()->result();
+		$data['ordenadores']= $this->ordenador_model->lista_ordenadores()->result();
 		$data['title']="Nuevo directorio";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('directorio_form',$data);
@@ -77,7 +77,7 @@ public function edit()
 public function siguiente(){
  // $data['directorio_list']=$this->directorio_model->lista_directorio()->result();
 	$data['directorio'] = $this->directorio_model->siguiente($this->uri->segment(3))->row_array();
-  $data['ordenadores']= $this->ordenador_model->lista_ordenador()->result();
+  $data['ordenadores']= $this->ordenador_model->lista_ordenadores()->result();
   $data['title']="Documento";
 	$this->load->view('template/page_header');		
   $this->load->view('directorio_record',$data);

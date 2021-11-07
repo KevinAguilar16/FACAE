@@ -1,21 +1,36 @@
 <div id="eys-nav-i">
-
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-<?php echo form_open('persona/save_edit') ?>
-    <ul>
-        <li> <?php echo anchor('persona/primero/', 'primero'); ?></li>
-        <li> <?php echo anchor('persona/anterior/'.$persona['idpersona'], 'anterior'); ?></li>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<ul>
+<?php
+if(isset($persona))
+{
+?>
+        <li> <?php echo anchor('persona/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('persona/siguiente/'.$persona['idpersona'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('persona/ultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('persona/anterior/'.$persona['idpersona'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('persona/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('persona/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('persona/edit/'.$persona['idpersona'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('persona/delete/'.$persona['idpersona'],'Delete'); ?></li>
         <li> <?php echo anchor('persona/listar/','Listar'); ?></li>
 
+<?php 
+}else{
+?>
+
+        <li> <?php echo anchor('persona/add', 'Nuevo'); ?></li>
+<?php
+}
+?>
+
     </ul>
 </div>
 <br>
+<br>
 
+
+<?php echo form_open('persona/save_edit') ?>
+<?php echo form_hidden('idpersona',$persona['idpersona']) ?>
 
 
 <table>
@@ -45,8 +60,30 @@
   </tr>
 
 
+  <tr>
+      <td>Correos:</td>
+      <td><?php
+ 	$options = array();
+  	foreach ($correos as $row){
+		$options[$row->idpersona]=$row->nombre;
+	}
 
 
+ echo form_multiselect('correo[]',$options,(array)set_value('idcorreo', ''), array('style'=>'width:500px')); ?></td>
+  </tr>
+
+
+<tr>
+      <td>Telefono:</td>
+      <td><?php
+ 	$options = array();
+  	foreach ($telefonos as $row){
+		$options[$row->idtelefono]=$row->numero;
+	}
+
+
+ echo form_multiselect('telefono[]',$options,(array)set_value('idtelefono', ''), array('style'=>'width:500px')); ?></td>
+  </tr>
 
 
 

@@ -1,24 +1,47 @@
 <div id="eys-nav-i">
-
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-<?php echo form_open('destinatario/save_edit') ?>
-    <ul>
-        <li> <?php echo anchor('destinatario/primero/', 'primero'); ?></li>
-        <li> <?php echo anchor('destinatario/anterior/'.$destinatario['iddocumento'], 'anterior'); ?></li>
-        <li> <?php echo anchor('destinatario/siguiente/'.$destinatario['iddocumento'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('destinatario/ultimo/', 'Último'); ?></li>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<ul>
+<?php
+if(isset($destinatario))
+{
+?>
+        <li> <?php echo anchor('destinatario/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('destinatario/anterior/'.$destinatario['iddestinatario'], 'anterior'); ?></li>
+        <li> <?php echo anchor('destinatario/siguiente/'.$destinatario['iddestinatario'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('destinatario/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('destinatario/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('destinatario/edit/'.$destinatario['iddocumento'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('destinatario/delete/'.$destinatario['iddocumento'],'Delete'); ?></li>
+        <li> <?php echo anchor('destinatario/edit/'.$destinatario['iddestinatario'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('destinatario/delete/'.$destinatario['iddestinatario'],'Delete'); ?></li>
         <li> <?php echo anchor('destinatario/listar/','Listar'); ?></li>
+
+
+<?php 
+}else{
+?>
+
+        <li> <?php echo anchor('destinatario/add', 'Nuevo'); ?></li>
+<?php
+}
+?>
+ 
+
 
     </ul>
 </div>
 <br>
+<br>
 
-
-<?php echo form_hidden('iddocumento',$destinatario['iddocumento']) ?>
+<?php echo form_open('destinatario/save_edit') ?>
+<?php echo form_hidden('iddestinatario',$destinatario['iddestinatario']) ?>
 <table>
+
+
+<tr>
+     <td>Id Destinatario:</td>
+     <td><?php echo form_input('iddestinatario',$destinatario['iddestinatario'],array("disabled"=>"disabled",'placeholder'=>'Iddestinatarios')) ?></td>
+  </tr>
+<tr>
+ 
 
 <tr>
      <td>Id Documento:</td>

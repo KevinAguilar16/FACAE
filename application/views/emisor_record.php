@@ -1,24 +1,49 @@
 <div id="eys-nav-i">
-
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-<?php echo form_open('emisor/save_edit') ?>
-    <ul>
-        <li> <?php echo anchor('emisor/primero/', 'primero'); ?></li>
-        <li> <?php echo anchor('emisor/anterior/'.$emisor['iddocumento'], 'anterior'); ?></li>
-        <li> <?php echo anchor('emisor/siguiente/'.$emisor['iddocumento'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('emisor/ultimo/', 'Último'); ?></li>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<ul>
+<?php
+if(isset($emisor))
+{
+?>
+        <li> <?php echo anchor('emisor/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('emisor/anterior/'.$emisor['idemisor'], 'anterior'); ?></li>
+        <li> <?php echo anchor('emisor/siguiente/'.$emisor['idemisor'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('emisor/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('emisor/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('emisor/edit/'.$emisor['iddocumento'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('emisor/delete/'.$emisor['iddocumento'],'Delete'); ?></li>
+        <li> <?php echo anchor('emisor/edit/'.$emisor['idemisor'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('emisor/delete/'.$emisor['idemisor'],'Delete'); ?></li>
         <li> <?php echo anchor('emisor/listar/','Listar'); ?></li>
+
+
+<?php 
+}else{
+?>
+
+        <li> <?php echo anchor('emisor/add', 'Nuevo'); ?></li>
+<?php
+}
+?>
+ 
+
 
     </ul>
 </div>
 <br>
+<br>
 
-
+<?php echo form_open('emisor/save_edit') ?>
 <?php echo form_hidden('iddocumento',$emisor['iddocumento']) ?>
 <table>
+
+<tr>
+     <td>Id Emisor:</td>
+     <td><?php echo form_input('idemisor',$emisor['idemisor'],array("disabled"=>"disabled",'placeholder'=>'Idemisors')) ?></td>
+  </tr>
+<tr>
+ 
+
+
+
 
 <tr>
      <td>Id Documento:</td>

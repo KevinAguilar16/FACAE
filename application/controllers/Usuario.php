@@ -10,7 +10,8 @@ class Usuario extends CI_Controller{
 }
 
 public function index(){
-	$data['usuario']=$this->usuario_model->usuario(1)->row_array();
+//	$data['usuario']=$this->usuario_model->usuario(1)->row_array();
+	$data['usuario'] = $this->usuario_model->elprimero();
 	$data['personas']= $this->persona_model->lista_persona()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfil()->result();
  // print_r($data['usuario_list']);
@@ -73,6 +74,17 @@ public function edit()
 	 	$this->usuario_model->update($id,$array_item);
 	 	redirect('usuario');
  	}
+
+ 	public function delete()
+ 	{
+ 		$data=$this->usuario_model->delete($this->uri->segment(3));
+ 		echo json_encode($data);
+	 	redirect('usuario/elprimero');
+	//	$db['default']['db_debug']=FALSE
+ 	}
+
+
+
 
 
 public function listar()

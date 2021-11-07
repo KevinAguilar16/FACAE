@@ -1,16 +1,31 @@
 <div id="eys-nav-i">
-
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-<?php echo form_open('unidad/save_edit') ?>
+    <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
     <ul>
-        <li> <?php echo anchor('unidad/primero/', 'primero'); ?></li>
+<?php
+if(isset($unidad))
+{
+?>
+
+        <li> <?php echo anchor('unidad/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('unidad/anterior/'.$unidad['idunidad'], 'anterior'); ?></li>
         <li> <?php echo anchor('unidad/siguiente/'.$unidad['idunidad'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('unidad/ultimo/', 'Último'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('unidad/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('unidad/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('unidad/edit/'.$unidad['idunidad'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('unidad/delete/'.$unidad['idunidad'],'Delete'); ?></li>
         <li> <?php echo anchor('unidad/listar/','Listar'); ?></li>
+
+<?php 
+}else{
+?>
+
+        <li> <?php echo anchor('unidad/add', 'Nuevo'); ?></li>
+<?php
+}
+?>
+
+
+
 
     </ul>
 </div>

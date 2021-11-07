@@ -42,7 +42,7 @@ public function add()
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$this->destinatario_model->save($array_item);
-	 	redirect('receptor');
+	 	redirect('destinatario');
  	}
 
 
@@ -72,6 +72,83 @@ public function edit()
 	 	$this->usuario_model->update($id,$array_item);
 	 	redirect('usuario');
  	}
+
+
+
+
+ 	public function delete()
+ 	{
+ 		$data=$this->destinatario_model->delete($this->uri->segment(3));
+ 		echo json_encode($data);
+	 	redirect('destinatario/elprimero');
+	//	$db['default']['db_debug']=FALSE
+ 	}
+
+
+
+
+
+
+public function elprimero()
+{
+  $data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['destinatario'] = $this->destinatario_model->elprimero();
+  if(!empty($data))
+  {
+  	$data['personas']= $this->persona_model->lista_persona()->result();
+    $data['title']="Correo";
+    $this->load->view('template/page_header');		
+    $this->load->view('destinatario_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+public function elultimo()
+{
+  $data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['destinatario'] = $this->destinatario_model->elultimo();
+  if(!empty($data))
+  {
+  	$data['personas']= $this->persona_model->lista_persona()->result();
+    $data['title']="Correo";
+  
+    $this->load->view('template/page_header');		
+    $this->load->view('destinatario_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+}
+
+public function siguiente(){
+ // $data['destinatario_list']=$this->destinatario_model->lista_destinatario()->result();
+  $data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['destinatario'] = $this->destinatario_model->siguiente($this->uri->segment(3))->row_array();
+  	$data['personas']= $this->persona_model->lista_persona()->result();
+  $data['title']="Correo";
+	$this->load->view('template/page_header');		
+  $this->load->view('destinatario_record',$data);
+	$this->load->view('template/page_footer');
+}
+
+public function anterior(){
+ // $data['destinatario_list']=$this->destinatario_model->lista_destinatario()->result();
+  $data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['destinatario'] = $this->destinatario_model->anterior($this->uri->segment(3))->row_array();
+ 	$data['personas']= $this->persona_model->lista_persona()->result();
+  $data['title']="Correo";
+	$this->load->view('template/page_header');		
+  $this->load->view('destinatario_record',$data);
+	$this->load->view('template/page_footer');
+}
+
 
 
 

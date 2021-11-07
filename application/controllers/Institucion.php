@@ -8,7 +8,6 @@ class Institucion extends CI_Controller{
 }
 
 public function index(){
-
 	if(isset($this->session->userdata['logged_in'])){
 	  	$data['institucion']=$this->institucion_model->institucion(1)->row_array();
   		$data['title']="Lista de Empresas";
@@ -20,8 +19,6 @@ public function index(){
 		$this->load->view('login_form');
 	 	$this->load->view('template/page_footer.php');
 	}
-
-
 }
 
 
@@ -31,17 +28,14 @@ public function add()
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('institucion_form',$data);
 	 	$this->load->view('template/page_footer');
-
-
 }
 
 
-	public function  save()
+public function  save()
 	{
 	 	$array_item=array(
-		 	
-		 	'idinstitucion' => $this->input->post('idinstitucion'),
-		 	'nombre' => $this->input->post('nombre'),
+	 	'idinstitucion' => $this->input->post('idinstitucion'),
+	 	'nombre' => $this->input->post('nombre'),
 	 	);
 	 	$this->institucion_model->save($array_item);
 	 	redirect('institucion');
@@ -84,8 +78,6 @@ public function listar()
 	$this->load->view('template/page_footer');
 }
 
-
-
 function institucion_data()
 {
 		$draw= intval($this->input->get("draw"));
@@ -106,10 +98,61 @@ function institucion_data()
 		);
 		echo json_encode($output);
 		exit();
-	
-			
-
 }
+
+
+public function elprimero()
+{
+	$data['institucion'] = $this->institucion_model->elprimero();
+  if(!empty($data))
+  {
+    $data['title']="Institucion";
+    $this->load->view('template/page_header');		
+    $this->load->view('institucion_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+public function elultimo()
+{
+	$data['institucion'] = $this->institucion_model->elultimo();
+  if(!empty($data))
+  {
+    $data['title']="Institucion";
+  
+    $this->load->view('template/page_header');		
+    $this->load->view('institucion_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+}
+
+public function siguiente(){
+ // $data['institucion_list']=$this->institucion_model->lista_institucion()->result();
+	$data['institucion'] = $this->institucion_model->siguiente($this->uri->segment(3))->row_array();
+  $data['title']="Institucion";
+	$this->load->view('template/page_header');		
+  $this->load->view('institucion_record',$data);
+	$this->load->view('template/page_footer');
+}
+
+public function anterior(){
+ // $data['institucion_list']=$this->institucion_model->lista_institucion()->result();
+	$data['institucion'] = $this->institucion_model->anterior($this->uri->segment(3))->row_array();
+  $data['title']="Institucion";
+	$this->load->view('template/page_header');		
+  $this->load->view('institucion_record',$data);
+	$this->load->view('template/page_footer');
+}
+
 
 
 

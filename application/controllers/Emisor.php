@@ -74,6 +74,81 @@ public function edit()
  	}
 
 
+ 	public function delete()
+ 	{
+ 		$data=$this->emisor_model->delete($this->uri->segment(3));
+ 		echo json_encode($data);
+	 	redirect('emisor/elprimero');
+	//	$db['default']['db_debug']=FALSE
+ 	}
+
+
+
+
+
+
+public function elprimero()
+{
+  $data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['emisor'] = $this->emisor_model->elprimero();
+  if(!empty($data))
+  {
+  	$data['personas']= $this->persona_model->lista_persona()->result();
+    $data['title']="Correo";
+    $this->load->view('template/page_header');		
+    $this->load->view('emisor_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+public function elultimo()
+{
+  $data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['emisor'] = $this->emisor_model->elultimo();
+  if(!empty($data))
+  {
+  	$data['personas']= $this->persona_model->lista_persona()->result();
+    $data['title']="Correo";
+  
+    $this->load->view('template/page_header');		
+    $this->load->view('emisor_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+}
+
+public function siguiente(){
+ // $data['emisor_list']=$this->emisor_model->lista_emisor()->result();
+  $data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['emisor'] = $this->emisor_model->siguiente($this->uri->segment(3))->row_array();
+  	$data['personas']= $this->persona_model->lista_persona()->result();
+  $data['title']="Correo";
+	$this->load->view('template/page_header');		
+  $this->load->view('emisor_record',$data);
+	$this->load->view('template/page_footer');
+}
+
+public function anterior(){
+ // $data['emisor_list']=$this->emisor_model->lista_emisor()->result();
+  $data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['emisor'] = $this->emisor_model->anterior($this->uri->segment(3))->row_array();
+ 	$data['personas']= $this->persona_model->lista_persona()->result();
+  $data['title']="Correo";
+	$this->load->view('template/page_header');		
+  $this->load->view('emisor_record',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+
 
 
 

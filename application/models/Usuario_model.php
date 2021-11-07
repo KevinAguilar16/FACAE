@@ -24,6 +24,18 @@ class Usuario_model extends CI_model {
  		$this->db->update('usuario',$array_item);
 	}
  
+ 	public function delete($id)
+	{
+ 		$this->db->where('idusuario',$id);
+		$this->db->delete('usuario');
+    		if($this->db->affected_rows()==1)
+			$result=true;
+		else
+			$result=false;
+		return $result;
+ 	}
+
+
 
 
   // Para ir al primero
