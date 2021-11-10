@@ -1,3 +1,6 @@
+//ESTA ARCHIO FUE MODIFICADO POR STALIN FRANIS
+//==========================================
+
 <?php
 class Persona_model extends CI_model {
 
