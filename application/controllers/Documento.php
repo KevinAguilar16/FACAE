@@ -1,3 +1,7 @@
+//=========================================
+//Esta programa fue hecho por STalin Franis
+//============================================
+
 <?php
 
 class Documento extends CI_Controller{
